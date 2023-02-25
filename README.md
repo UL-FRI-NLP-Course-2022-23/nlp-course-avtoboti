@@ -2,7 +2,7 @@
 
 Team members:
  * `Aljaž Sebastjan Ahtik`, `63180041`, `aa1353@student.uni-lj.si`
- * `MEMBER FULL NAME`, `STUDENT ID`, `STUDENT E-MAIL`
+ * `Luka Kuzman`, `63170014`, `lk0098@student.uni-lj.si`
  * `MEMBER FULL NAME`, `STUDENT ID`, `STUDENT E-MAIL`
  
 Group public acronym/name: `Avtoboti`
