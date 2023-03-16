@@ -1,0 +1,25 @@
+@misc{11356/1321,
+title = {The {CLASSLA}-{StanfordNLP} model for named entity recognition of standard Slovenian 1.0},
+author = {Ljube{\v s}i{\'c}, Nikola},
+url = {http://hdl.handle.net/11356/1321},
+note = {Slovenian language resource repository {CLARIN}.{SI}},
+copyright = {Creative Commons - Attribution-{ShareAlike} 4.0 International ({CC} {BY}-{SA} 4.0)},
+issn = {2820-4042},
+year = {2020} }
+
+@misc{11356/1339,
+title = {The {CLASSLA}-{StanfordNLP} model for named entity recognition of non-standard Slovenian 1.0},
+author = {Ljube{\v s}i{\'c}, Nikola},
+url = {http://hdl.handle.net/11356/1339},
+note = {Slovenian language resource repository {CLARIN}.{SI}},
+copyright = {Creative Commons - Attribution-{ShareAlike} 4.0 International ({CC} {BY}-{SA} 4.0)},
+issn = {2820-4042},
+year = {2020} }
+
+@inproceedings{stanfordnlp,
+  title={Incorporating non-local information into information extraction systems by gibbs sampling},
+  author={Finkel, Jenny Rose and Grenager, Trond and Manning, Christopher D},
+  booktitle={Proceedings of the 43rd annual meeting of the association for computational linguistics (ACL’05)},
+  pages={363--370},
+  year={2005}
+}
