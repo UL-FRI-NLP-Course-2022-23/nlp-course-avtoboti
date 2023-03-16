@@ -2,13 +2,13 @@ import sys
 import nltk
 
 DOCUMENTS = [
-    "data/Henry_Red_Chief.txt",
-    "data/Hills Like White Elephants.txt",
-    "data/LeiningenVstheAnts.txt",
-    "data/The Lady or the Tiger Original.txt",
-    "data/The Most Dangerous Game.txt",
-    "data/The Tell Tale Heart.txt",
-    "data/the_gift_of_the_magi_0_Henry.txt"
+    "../data/english_short_stories/Henry_Red_Chief.txt",
+    "../data/english_short_stories/Hills Like White Elephants.txt",
+    "../data/english_short_stories/LeiningenVstheAnts.txt",
+    "../data/english_short_stories/The Lady or the Tiger Original.txt",
+    "../data/english_short_stories/The Most Dangerous Game.txt",
+    "../data/english_short_stories/The Tell Tale Heart.txt",
+    "../data/english_short_stories/the_gift_of_the_magi_0_Henry.txt"
 ]
 
 ENCODINGS = [
