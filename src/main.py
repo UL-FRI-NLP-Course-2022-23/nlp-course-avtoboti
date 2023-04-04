@@ -1,5 +1,4 @@
 import sys
-import nltk
 
 DOCUMENTS = [
     "../data/english_short_stories/Henry_Red_Chief.txt",
@@ -16,6 +15,22 @@ ENCODINGS = [
     "ascii",
     "latin-1"
 ]
+
+def get_sentences(doc, filter=None) -> list:
+    sentences = []
+    for d in doc.sentences:
+        words = d.words
+        sentences.append([s for s in words if not filter or filter(s)])
+    # if len(doc) > 0 and isinstance(doc[0], list):
+    #     if len(doc[0]) == 1:
+    #         for d in doc:
+    #             sentences.append([s[0] for s in d if not filter or filter(s[0])])
+    #     else:
+    #         raise Exception("Invalid document format (nested list with more than one element)")
+    # else:
+    #     for d in doc:
+    #         sentences.append([s[0] for s in d if not filter or filter(s[0])])
+    return sentences
 
 def read_file(filename: str) -> str:
     file_read = False
@@ -34,7 +49,7 @@ def read_file(filename: str) -> str:
         raise Exception("Could not read file '{}'".format(filename))
     else:
         return data
-    
+
 def main():
     for document in DOCUMENTS:
         print(document)
