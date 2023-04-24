@@ -21,8 +21,10 @@ def get_named_entities(doc, lang='en'):
     if lang == 'en':
         for sentence in doc.sentences:
             named_entities_in_sent = []
-            for entity in sentence.ents:
-                if entity.type == 'PERSON':
+            # for entity in sentence.ents:
+            for entity in sentence.tokens:
+                # if entity.type == 'PERSON':
+                if not entity.ner.startswith('O') and entity.ner.endswith('-PERSON'):
                     named_entities_in_sent.append(entity)
             named_entities_in_doc.append(named_entities_in_sent)
     
@@ -30,7 +32,7 @@ def get_named_entities(doc, lang='en'):
         for sentence in doc.sentences:
             named_entities_in_sent = []
             for token in sentence.tokens:
-                if not token.ner.startswith('O'):
+                if not token.ner.startswith('O') and token.ner.endswith('-PER'):
                     named_entities_in_sent.append(token)
             named_entities_in_doc.append(named_entities_in_sent)
     return named_entities_in_doc
