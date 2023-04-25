@@ -16,6 +16,27 @@ ENCODINGS = [
     "latin-1"
 ]
 
+def get_named_entities(doc, lang='en'):
+    named_entities_in_doc = []
+    if lang == 'en':
+        for sentence in doc.sentences:
+            named_entities_in_sent = []
+            # for entity in sentence.ents:
+            for entity in sentence.tokens:
+                # if entity.type == 'PERSON':
+                if not entity.ner.startswith('O') and entity.ner.endswith('-PERSON'):
+                    named_entities_in_sent.append(entity)
+            named_entities_in_doc.append(named_entities_in_sent)
+    
+    elif lang == 'sl':
+        for sentence in doc.sentences:
+            named_entities_in_sent = []
+            for token in sentence.tokens:
+                if not token.ner.startswith('O') and token.ner.endswith('-PER'):
+                    named_entities_in_sent.append(token)
+            named_entities_in_doc.append(named_entities_in_sent)
+    return named_entities_in_doc
+
 def get_sentences(doc, filter=None) -> list:
     sentences = []
     for d in doc.sentences:
