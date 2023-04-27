@@ -131,3 +131,4 @@ dmypy.json
 # Custom
 models/classla_resources
 models/stanza_resources
+models/slo_coref
