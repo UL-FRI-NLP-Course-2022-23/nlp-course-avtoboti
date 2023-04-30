@@ -132,3 +132,5 @@ dmypy.json
 models/classla_resources
 models/stanza_resources
 models/slo_coref
+
+**/.DS_Store
