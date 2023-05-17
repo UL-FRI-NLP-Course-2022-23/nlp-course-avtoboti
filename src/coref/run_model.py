@@ -58,64 +58,6 @@ def to_input(classla_output):
 
     return sentences
 
-# def classla_output_to_coref_input(classla_output):
-#     # Transforms CLASSLA's output into a form that can be fed into coref model.
-#     output_tokens = {}
-#     output_sentences = []
-#     output_mentions = {}
-#     output_clusters = []
-
-#     str_document = classla_output.text
-#     start_char = 0
-#     MENTION_MSD = {"N", "V", "R", "P"}  # noun, verb, adverb, pronoun
-
-#     current_mention_id = 1
-#     token_index_in_document = 0
-#     for sentence_index, input_sentence in enumerate(classla_output.sentences):
-#         output_sentence = []
-#         mention_tokens = []
-#         for token_index_in_sentence, input_token in enumerate(input_sentence.tokens):
-#             input_word = input_token.words[0]
-#             output_token = Token(str(sentence_index) + "-" + str(token_index_in_sentence),
-#                                  input_word.text,
-#                                  input_word.lemma,
-#                                  input_word.xpos,
-#                                  sentence_index,
-#                                  token_index_in_sentence,
-#                                  token_index_in_document)
-
-#             # FIXME: This is a possibly inefficient way of finding start_char of a word. Stanza has this functionality
-#             #  implemented, Classla unfortunately does not, so we resort to a hack
-#             new_start_char = str_document.find(input_word.text, start_char)
-#             output_token.start_char = new_start_char
-#             if new_start_char != -1:
-#                 start_char = new_start_char
-
-#             if len(mention_tokens) > 0 and mention_tokens[0].msd[0] != output_token.msd[0]:
-#                 output_mentions[current_mention_id] = Mention(current_mention_id, mention_tokens)
-#                 output_clusters.append([current_mention_id])
-#                 mention_tokens = []
-#                 current_mention_id += 1
-
-#             # Simplistic mention detection: consider nouns, verbs, adverbs and pronouns as mentions
-#             if output_token.msd[0] in MENTION_MSD:
-#                 mention_tokens.append(output_token)
-
-#             output_tokens[output_token.token_id] = output_token
-#             output_sentence.append(output_token.token_id)
-#             token_index_in_document += 1
-
-#         # Handle possible leftover mention tokens at end of sentence
-#         if len(mention_tokens) > 0:
-#             output_mentions[current_mention_id] = Mention(current_mention_id, mention_tokens)
-#             output_clusters.append([current_mention_id])
-#             mention_tokens = []
-#             current_mention_id += 1
-
-#         output_sentences.append(output_sentence)
-
-#     return output_tokens, output_sentences, output_mentions, output_clusters
-
 def get_response(coref_input, coref_output, classla_data, threshold, return_singletons):
     coreferences = []
     coreferenced_mentions = set()
@@ -180,6 +122,30 @@ def get_key(coreference_map, k):
     else:
         return get_key(coreference_map, coreference_map[k])
 
+def get_mentions(ms):
+    mentions = []
+    for mention in ms.values():
+        mention_raw_text = " ".join([t.raw_text for t in mention.tokens])
+        mentions.append(
+            {
+                "id": mention.mention_id,
+                "start_idx": mention.tokens[0].start_char,
+                "length": len(mention_raw_text),
+                "msd": mention.tokens[0].msd,
+                "text": mention_raw_text
+            }
+        )
+    return mentions
+
+def get_slocoref(classla_output):
+    sentences_data = to_input(classla_output)
+    all_tokens = {k: v for sentence in sentences_data for k, v in sentence["tokens"].items()}
+    all_sentences = [s for sentence in sentences_data for s in sentence["sentences"]]
+    all_mentions = {k: v for sentence in sentences_data for k, v in sentence["mentions"].items()}
+    all_clusters = [c for sentence in sentences_data for c in sentence["clusters"]]
+    coref_input = Document(1, all_tokens, all_sentences, all_mentions, all_clusters)
+    return coref_model.evaluate_single(coref_input), get_mentions(all_mentions)
+
 def coref_resolution(classla_output, threshold, return_singletons, window_size=None, window_stride=None):
     sentences_data = to_input(classla_output)
     all_tokens = {k: v for sentence in sentences_data for k, v in sentence["tokens"].items()}
@@ -210,6 +176,7 @@ def coref_resolution(classla_output, threshold, return_singletons, window_size=N
     if window_size is None:
         coref_input = Document(1, all_tokens, all_sentences, all_mentions, all_clusters)
         coref_output = coref_model.evaluate_single(coref_input)
+        print(coref_output)
         ret_response = get_response(coref_input, coref_output, classla_output, threshold, return_singletons)
         ret_coreferences = ret_response["coreferences"]
         for coref in ret_coreferences:
@@ -264,12 +231,12 @@ def coref_resolution(classla_output, threshold, return_singletons, window_size=N
 
 
     print("Resolving coreference sets")
-    print(coreferences_map)
+    # print(coreferences_map)
     coreferences = {k: [k] for k in set(coreferences_map.values())}
     for k, v in coreferences_map.items():
         coreferences[v].append(k)
 
-    return ret_mentions, coreferences.values()
+    return ret_mentions, list(coreferences.values())
     # coref_output = coref_model.evaluate_single(coref_input)
     # # 4. prepare response (mentions + coreferences)
     # coreferences = []
