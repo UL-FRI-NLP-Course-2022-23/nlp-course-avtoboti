@@ -1,0 +1,39 @@
+[
+  {
+    "('Ebenezer', 'Dorset')": 4,
+    "('Ebenezer', 'Bill')": 2,
+    "('Dorset', 'Bill')": 4,
+    "('Bill', 'Driscoll')": 2,
+    "('Bill', 'Sam')": 5,
+    "('Hank', 'Old')": 3,
+    "('Hank', 'Trapper')": 1,
+    "('Old', 'Trapper')": 1
+  },
+  {},
+  {
+    "('Leiningen', 'Macbeth')": 1
+  },
+  {},
+  {
+    "('Rain', 'Zaroff')": 3,
+    "('Rain', 'Whitney')": 1,
+    "('Rain', 'Cossack')": 1,
+    "('Rain', 'Ivan')": 4,
+    "('Zaroff', 'Ivan')": 1
+  },
+  {
+    "('Edgar', 'Allan')": 1,
+    "('Edgar', 'Poe')": 1,
+    "('Allan', 'Poe')": 1
+  },
+  {
+    "('Della', 'Jim')": 1,
+    "('Della', 'Combs')": 1,
+    "('Jim', 'James')": 1,
+    "('Jim', 'Dillingham')": 1,
+    "('Jim', 'Young')": 1,
+    "('James', 'Dillingham')": 4,
+    "('James', 'Young')": 4,
+    "('Dillingham', 'Young')": 4
+  }
+]

@@ -1,0 +1,11 @@
+stanza
+classla
+nltk
+networkx
+matplotlib
+numpy
+plotly
+pandas
+jupyter
+scikit-learn
+tensorflow
