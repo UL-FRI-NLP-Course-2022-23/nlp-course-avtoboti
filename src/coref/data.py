@@ -113,16 +113,16 @@ class Token:
         # return f"Token(\"{self.raw_text}\")"
         return \
             f"""
-                token_id: {self.token_id}
-                raw_text: {self.raw_text}
-                lemma: {self.lemma}
-                msd: {self.msd}
-                sentence_index: {self.sentence_index}
-                position_in_sentence: {self.position_in_sentence}
-                position_in_document: {self.position_in_document}
-                gender: {self.gender}
-                number: {self.number}
-                category: {self.category}
+    token_id: {self.token_id}
+    raw_text: {self.raw_text}
+    lemma: {self.lemma}
+    msd: {self.msd}
+    sentence_index: {self.sentence_index}
+    position_in_sentence: {self.position_in_sentence}
+    position_in_document: {self.position_in_document}
+    gender: {self.gender}
+    number: {self.number}
+    category: {self.category}
             """
 
     def __repr__(self):
@@ -162,8 +162,8 @@ class Mention:
         # return f"Mention(\"{' '.join([tok.raw_text for tok in self.tokens])}\")"
         return \
             f"""
-                mention_id: {self.mention_id}
-                tokens: {self.tokens}
+mention_id: {self.mention_id}
+tokens: {self.tokens}
             """
     def __repr__(self):
         return self.__str__()
