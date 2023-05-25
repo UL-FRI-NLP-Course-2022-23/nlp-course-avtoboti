@@ -3,6 +3,7 @@ import os
 
 import stanza
 import classla
+
 from co_occurrence_extraction import extract_co_occurrences
 from common import read_json_file, get_book_text, save_json_file
 

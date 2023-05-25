@@ -6,7 +6,8 @@ from googletrans import Translator
 from common import find_character_sentences
 
 
-def sentiment_analysis(characters, book_text, sia, nlp, coref_json=None, find_mode='direct', lang="en"):
+def sentiment_analysis(characters, book_text, sia, nlp, coref_json=None,
+                       center_mean=False, find_mode='direct', lang="en"):
     """
     Sentiment analysis using VADER
     :param characters: dictionary of characters
@@ -14,6 +15,7 @@ def sentiment_analysis(characters, book_text, sia, nlp, coref_json=None, find_mo
     :param sia: VADER sentiment analyzer
     :param nlp: classla or stanza pipeline
     :param coref_json: a JSON object containing co-references and their positions
+    :param center_mean: whether to center the mean of the sentiment values to 0
     :param find_mode: mode of finding sentences ('direct', 'lemma' or 'coref')
     :param lang: language of the book
     :return: dictionary of characters and their sentiments
@@ -59,8 +61,9 @@ def sentiment_analysis(characters, book_text, sia, nlp, coref_json=None, find_mo
         #     sentiments[c]['sentiment'] *= math.log(len(sentences) + 1)
 
     # Move the mean to 0
-    mean = np.mean([sentiment['sentiment'] for sentiment in sentiments.values()])
-    for c, sentiment in sentiments.items():
-        sentiment['sentiment'] -= mean
+    if center_mean:
+        mean = np.mean([sentiment['sentiment'] for sentiment in sentiments.values()])
+        for c, sentiment in sentiments.items():
+            sentiment['sentiment'] -= mean
 
     return sentiments

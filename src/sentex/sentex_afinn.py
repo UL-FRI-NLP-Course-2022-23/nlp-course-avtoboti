@@ -5,7 +5,8 @@ import numpy as np
 from common import find_character_sentences
 
 
-def sentiment_analysis(characters, book_text, afinn, nlp, coref_json=None, find_mode='direct', lang='en'):
+def sentiment_analysis(characters, book_text, afinn, nlp, coref_json=None,
+                       center_mean=False, find_mode='direct', lang='en'):
     """
     Sentiment analysis using Afinn
     :param characters: dictionary of characters
@@ -13,6 +14,7 @@ def sentiment_analysis(characters, book_text, afinn, nlp, coref_json=None, find_
     :param nlp: stanza pipeline
     :param afinn: Afinn dictionary
     :param coref_json: a JSON object containing co-references and their positions
+    :param center_mean: whether to center the mean of the sentiment values to 0
     :param find_mode: mode of finding sentences with characters ('direct', 'lemma' or 'coref')
     :param lang: language of the book
     :return: dictionary of characters and their sentiments
@@ -47,14 +49,23 @@ def sentiment_analysis(characters, book_text, afinn, nlp, coref_json=None, find_
         #     sentiments[c]['sentiment'] *= math.log(len(sentences) + 1, 50)
 
     # Move the mean to 0
-    mean = np.mean([sentiment['sentiment'] for sentiment in sentiments.values()])
-    for c, sentiment in sentiments.items():
-        sentiment['sentiment'] -= mean
+    if center_mean:
+        mean = np.mean([sentiment['sentiment'] for sentiment in sentiments.values()])
+        for c, sentiment in sentiments.items():
+            sentiment['sentiment'] -= mean
 
     return sentiments
 
 
 def afinn_score_slovene(sentence, afinn, nlp):
+    """
+    Returns the sentiment score of a sentence using the Afinn dictionary
+    :param sentence: sentence to be analyzed
+    :param afinn: Slovene Afinn dictionary
+    :param nlp: stanza or classla pipeline
+    :return: sentiment score
+    """
+
     score = 0
     lemma_count = 0
     doc = nlp(sentence)
@@ -67,7 +78,7 @@ def afinn_score_slovene(sentence, afinn, nlp):
     return score / lemma_count if lemma_count > 0 else 0
 
 
-def create_slovene_afinn_dict():
+def create_slovene_afinn_dict():  # For reading the Slovene Afinn dictionary from a file
     afinn_dict = dict()
     # Read book text
     with open('afinn_lex/afinn-slo.txt', 'r', encoding="utf-8") as f:

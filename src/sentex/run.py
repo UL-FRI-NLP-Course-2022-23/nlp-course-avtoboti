@@ -13,8 +13,7 @@ import stanza
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import torch
-from transformers import BertTokenizer, BertForSequenceClassification,\
-    AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 MAX_RETRIES = 3
 
@@ -96,9 +95,9 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
     elif "bert" in mode:
         # Load pre-trained BERT model and tokenizer
         if lang == 'en':
-            model_name = 'nlptown/bert-base-multilingual-uncased-sentiment'
-            tokenizer = BertTokenizer.from_pretrained(model_name)
-            model = BertForSequenceClassification.from_pretrained(model_name)
+            model_name = 'cardiffnlp/twitter-roberta-base-sentiment-latest'
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            model = AutoModelForSequenceClassification.from_pretrained(model_name)
         elif lang == 'sl':
             model_name = "cjvt/sloberta-sentinews-sentence"
             tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -158,22 +157,29 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
         # Get book co-references
         coref_json = None
         # if all_coref_json is not None:
-            # coref_json = get_book_corefs(all_coref_json[character_dict.get(filename)])
+        #   coref_json = get_book_corefs(all_coref_json[character_dict.get(filename)])
 
         # If we removed all characters, skip the book
         if characters_json is None or characters_json == {}:
             sentiments.append(None)
             continue
 
+        # If only one character, don't center to mean (since there is only one character)
+        center_mean = True
+        if len(characters_json) == 1:
+            center_mean = False  # We can also decide not to center to mean and just use the character's sentiment
+
         # Perform sentiment analysis
         if "afinn" in mode:
             sentiments.append(sentex_afinn.sentiment_analysis(characters_json, text, afinn, nlp,
-                                                              coref_json=coref_json, find_mode=find_mode, lang=lang))
+                                                              center_mean=center_mean, coref_json=coref_json,
+                                                              find_mode=find_mode, lang=lang))
         elif "vader" in mode:
             for _ in range(MAX_RETRIES):
                 try:
                     sentiments.append(sentex_nltk.sentiment_analysis(characters_json, text, sia, nlp,
-                                                                     coref_json=coref_json, find_mode=find_mode, lang=lang))
+                                                                     center_mean=center_mean, coref_json=coref_json,
+                                                                     find_mode=find_mode, lang=lang))
                     break
                 except Exception as e:
                     if _ == MAX_RETRIES - 1:
@@ -187,7 +193,8 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
                         continue
         if "bert" in mode:
             sentiments.append(sentex_bert.sentiment_analysis(characters_json, text, model, tokenizer, device, nlp,
-                                                             coref_json=coref_json, find_mode=find_mode, lang=lang))
+                                                             center_mean=center_mean, coref_json=coref_json,
+                                                             find_mode=find_mode, lang=lang))
 
     return sentiments
 
@@ -199,8 +206,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         raise Exception('Usage: python run.py <stories> <mode>')
 
-    stories_sentiments = extract_all_sentiments(stories_arg, mode_arg,
-                                                infrequent_characters=2, find_mode='coref')
+    stories_sentiments = extract_all_sentiments(stories_arg, mode_arg, infrequent_characters=3, find_mode='coref')
 
     for i in range(len(stories_sentiments)):
         if stories_sentiments[i] is None:

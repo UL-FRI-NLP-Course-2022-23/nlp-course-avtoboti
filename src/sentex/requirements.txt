@@ -1,11 +1,9 @@
-stanza
+afinn
 classla
+googletrans
 nltk
-networkx
-matplotlib
 numpy
-plotly
-pandas
-jupyter
-scikit-learn
+stanza
 tensorflow
+torch
+transformers

@@ -1,77 +1,258 @@
 [
-  {},
+  {
+    "petelin": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  },
   {},
   {
-    "Marica": 0.42857142857142855
+    "Marica": {
+      "frequency": 7,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "kralj": {
+      "frequency": 2,
+      "sentiment": -0.01470048454674807
+    },
+    "Jug": {
+      "frequency": 2,
+      "sentiment": 0.014700484546748077
+    }
+  },
+  {},
+  {
+    "Bonifac": {
+      "frequency": 24,
+      "sentiment": 0.024530207086354495
+    },
+    "Pankrac": {
+      "frequency": 13,
+      "sentiment": -0.024530207086354495
+    }
+  },
+  {
+    "\u0160kratelj": {
+      "frequency": 1,
+      "sentiment": 0.47253480553627014
+    },
+    "Mernik": {
+      "frequency": 1,
+      "sentiment": -0.47253480553627014
+    }
+  },
+  {
+    "Zlatar": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Mojca": {
+      "frequency": 23,
+      "sentiment": -0.10326903779059649
+    },
+    "Pokrajculja": {
+      "frequency": 22,
+      "sentiment": 0.09349683532491326
+    },
+    "lisica": {
+      "frequency": 3,
+      "sentiment": 0.009772202465683222
+    }
+  },
+  {
+    "brat": {
+      "frequency": 3,
+      "sentiment": 0.0
+    }
+  },
+  {},
+  {
+    "Bogdanka": {
+      "frequency": 8,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "lisica": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "kralji\u010den": {
+      "frequency": 2,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Markec": {
+      "frequency": 106,
+      "sentiment": 0.0
+    },
+    "Mark\u010dev": {
+      "frequency": 12,
+      "sentiment": 0.0
+    },
+    "Markc": {
+      "frequency": 9,
+      "sentiment": 0.0
+    },
+    "Kova\u010d": {
+      "frequency": 9,
+      "sentiment": 0.0
+    },
+    "grofov": {
+      "frequency": 3,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "kralj": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "kralji\u010den": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "Kraljevi\u010d": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "lisica": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Gra\u0161\u010dak": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "kralj": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "vtem": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Kova\u010d": {
+      "frequency": 7,
+      "sentiment": 0.0
+    },
+    "Mlinar": {
+      "frequency": 3,
+      "sentiment": 0.0
+    }
   },
   {},
   {},
   {
-    "Bonifac": 0.0,
-    "Pankrac": -0.38461538461538464
-  },
-  {},
-  {},
-  {
-    "Mojca": -0.3,
-    "Pokrajculja": -0.3,
-    "lisica": -0.3333333333333333
+    "golob\u010dek": {
+      "frequency": 2,
+      "sentiment": 0.0
+    }
   },
   {
-    "brat": 0.1
+    "pastir\u010dek": {
+      "frequency": 7,
+      "sentiment": -0.16074049579245706
+    },
+    "Kova\u010d": {
+      "frequency": 3,
+      "sentiment": 0.16074049579245703
+    }
+  },
+  {
+    "Ma\u010dek": {
+      "frequency": 2,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Samson": {
+      "frequency": 6,
+      "sentiment": 0.11374160945415498
+    },
+    "\u010cevljar\u010dek": {
+      "frequency": 6,
+      "sentiment": 0.1281238079071045
+    },
+    "Matev\u017e": {
+      "frequency": 6,
+      "sentiment": -0.24186541736125944
+    }
+  },
+  {
+    "Podpe\u010dnik": {
+      "frequency": 3,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Metuzalemov": {
+      "frequency": 1,
+      "sentiment": -0.29190801829099655
+    },
+    "kralj": {
+      "frequency": 1,
+      "sentiment": 0.29190801829099655
+    }
+  },
+  {
+    "Grivec": {
+      "frequency": 2,
+      "sentiment": 0.0
+    }
   },
   {},
   {
-    "Bogdanka": 0.0
-  },
-  {},
-  {},
-  {
-    "Markec": 0.0,
-    "Mark\u010dev": 0.0,
-    "Markc": 0.0,
-    "Kova\u010d": 0.0,
-    "grofov": 0.0
-  },
-  {},
-  {},
-  {
-    "Kova\u010d": 0.0,
-    "Mlinar": 0.0
-  },
-  {},
-  {},
-  {},
-  {
-    "pastir\u010dek": 0.5,
-    "Kova\u010d": 0.3333333333333333
-  },
-  {},
-  {
-    "Samson": 0.2,
-    "\u010cevljar\u010dek": 0.14285714285714285,
-    "Matev\u017e": 0.16666666666666666
+    "Kraljevi\u010d": {
+      "frequency": 3,
+      "sentiment": 0.0
+    }
   },
   {
-    "Podpe\u010dnik": 0.0
-  },
-  {},
-  {},
-  {},
-  {
-    "Kraljevi\u010d": 0.5
+    "kralj": {
+      "frequency": 3,
+      "sentiment": 0.0
+    }
   },
   {
-    "kralj": 0.4
+    "kuhar": {
+      "frequency": 10,
+      "sentiment": -0.4762258931994438
+    },
+    "Zlatolaska": {
+      "frequency": 6,
+      "sentiment": 0.4762258931994438
+    }
   },
   {
-    "kuhar": 0.0,
-    "Zlatolaska": -0.09090909090909091
+    "Luna": {
+      "frequency": 5,
+      "sentiment": 0.20967153708140054
+    },
+    "veter": {
+      "frequency": 4,
+      "sentiment": 0.20967153708140054
+    },
+    "Zlatolaska": {
+      "frequency": 3,
+      "sentiment": -0.41934307416280114
+    }
   },
   {
-    "Luna": 0.0,
-    "veter": 0.0,
-    "Zlatolaska": 0.0
-  },
-  {}
+    "hudobne\u017e": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  }
 ]

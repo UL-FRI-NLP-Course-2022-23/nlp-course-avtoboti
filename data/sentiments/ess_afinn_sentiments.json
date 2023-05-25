@@ -2,39 +2,39 @@
   {
     "Ebenezer": {
       "frequency": 254,
-      "sentiment": 0.7242424242424244
+      "sentiment": 0.39933941774147963
     },
     "Dorset": {
       "frequency": 254,
-      "sentiment": 0.7242424242424244
+      "sentiment": 0.39933941774147963
     },
     "Bill": {
       "frequency": 164,
-      "sentiment": 0.445360824742268
+      "sentiment": 0.12045781824132329
     },
     "Driscoll": {
       "frequency": 124,
-      "sentiment": 0.451948051948052
+      "sentiment": 0.12704504544710726
     },
     "Sam": {
       "frequency": 26,
-      "sentiment": 0.4533333333333334
+      "sentiment": 0.1284303268323887
     },
     "Hank": {
       "frequency": 9,
-      "sentiment": 0.025
+      "sentiment": -0.2999030065009447
     },
     "HENRY": {
       "frequency": 4,
-      "sentiment": 0.15
+      "sentiment": -0.17490300650094473
     },
     "Old": {
       "frequency": 4,
-      "sentiment": -0.05000000000000002
+      "sentiment": -0.37490300650094477
     },
     "Trapper": {
       "frequency": 3,
-      "sentiment": 0.0
+      "sentiment": -0.3249030065009447
     }
   },
   {
@@ -46,82 +46,95 @@
   {
     "Leiningen": {
       "frequency": 303,
-      "sentiment": -0.03253588516746409
+      "sentiment": 0.18373205741626797
     },
     "Macbeth": {
       "frequency": 3,
-      "sentiment": -0.4
+      "sentiment": -0.18373205741626797
     }
   },
-  {},
+  {
+    "Frank": {
+      "frequency": 1,
+      "sentiment": 5.551115123125783e-17
+    },
+    "R.": {
+      "frequency": 1,
+      "sentiment": 5.551115123125783e-17
+    },
+    "Stockton": {
+      "frequency": 1,
+      "sentiment": 5.551115123125783e-17
+    }
+  },
   {
     "Rain": {
       "frequency": 749,
-      "sentiment": 0.03559999999999998
+      "sentiment": -0.11162962962962965
     },
     "Zaroff": {
       "frequency": 55,
-      "sentiment": 0.12777777777777777
+      "sentiment": -0.01945185185185186
     },
     "Whitney": {
       "frequency": 19,
-      "sentiment": 0.1375
+      "sentiment": -0.009729629629629616
     },
     "Cossack": {
       "frequency": 12,
-      "sentiment": -0.1375
+      "sentiment": -0.28472962962962967
     },
     "Ivan": {
       "frequency": 8,
-      "sentiment": 0.12
+      "sentiment": -0.02722962962962963
     },
     "Lazarus": {
       "frequency": 3,
-      "sentiment": 0.6
+      "sentiment": 0.4527703703703704
     }
   },
   {
     "Edgar": {
       "frequency": 170,
-      "sentiment": -0.10642201834862383
+      "sentiment": -0.026605504587155965
     },
     "Allan": {
       "frequency": 170,
-      "sentiment": -0.10642201834862383
+      "sentiment": -0.026605504587155965
     },
     "Poe": {
       "frequency": 166,
-      "sentiment": -0.10642201834862383
+      "sentiment": -0.026605504587155965
     },
     "poe": {
       "frequency": 4,
-      "sentiment": 0
+      "sentiment": 0.07981651376146787
     }
   },
   {
     "Della": {
       "frequency": 144,
-      "sentiment": 0.19354838709677416
+      "sentiment": -0.10156208206280429
     },
     "Jim": {
       "frequency": 99,
-      "sentiment": 0.31044776119402995
+      "sentiment": 0.0153372920344515
     },
     "James": {
       "frequency": 12,
-      "sentiment": 0.08888888888888889
+      "sentiment": -0.20622158027068954
     },
     "Dillingham": {
       "frequency": 11,
-      "sentiment": 0.08888888888888889
+      "sentiment": -0.20622158027068954
     },
     "Young": {
       "frequency": 11,
-      "sentiment": 0.08888888888888889
+      "sentiment": -0.20622158027068954
     },
     "Combs": {
       "frequency": 8,
-      "sentiment": 1.0
+      "sentiment": 0.7048895308404215
     }
   }
 ]
