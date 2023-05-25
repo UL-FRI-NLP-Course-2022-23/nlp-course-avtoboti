@@ -3,6 +3,7 @@ import sys
 import os
 
 import nltk
+from nltk.tokenize import sent_tokenize
 
 ENCODINGS = [
     "utf-8",
@@ -17,7 +18,14 @@ OTHER_CHARACTERS_EN = [
 OTHER_CHARACTERS_SL = [
 ]
 
+
 def read_json_file(filename):
+    """
+    Reads JSON file and returns its contents
+    :param filename: path to file
+    :return: JSON file contents
+    """
+
     file_read = False
     data = ""
 
@@ -58,6 +66,12 @@ def save_json_file(json_array, filename):
 
 
 def get_book_text(filename):
+    """
+    Gets book text given a filename
+    :param filename: path to file
+    :return: book text
+    """
+
     file_read = False
     data = ""
 
@@ -78,37 +92,195 @@ def get_book_text(filename):
     return data
 
 
-def remove_infrequent_characters(json, n):
-    copy_dict = json.copy()
+def remove_infrequent_characters(characters_json, n):
+    """
+    Removes characters that appear less than n times
+    :param characters_json: JSON file containing characters
+    :param n: number of times a character has to appear in the book to be considered
+    :return: JSON file containing characters
+    """
+
+    copy_dict = characters_json.copy()
 
     for char, freq in copy_dict.items():
         if freq <= n:
-            del json[char]
+            del characters_json[char]
 
-    return json
+    return characters_json
 
 
-def remove_false_characters(json, lang="en"):
-    copy_dict = json.copy()
+def remove_false_characters(characters_json, lang="en"):
+    """
+    Removes characters that are (presumably) not actual characters (such as stopwords etc.)
+    :param characters_json: JSON file containing characters
+    :param lang: language of the book
+    :return: JSON file containing characters
+    """
+
+    copy_dict = characters_json.copy()
 
     for char, freq in copy_dict.items():
         if lang == "en":
             # Remove characters that are stopwords or are just letters
             if len(char) < 2 or char.lower() in nltk.corpus.stopwords.words('english'):
-                del json[char]
+                del characters_json[char]
 
             # If it's anything else that we don't want, remove it
             if char in OTHER_CHARACTERS_EN:
-                del json[char]
+                del characters_json[char]
 
         elif lang == "sl":
             # Remove characters that are stopwords or are just letters
             if len(char) < 2 or char.lower() in nltk.corpus.stopwords.words('slovene'):
-                del json[char]
+                del characters_json[char]
 
             # If it's anything else that we don't want, remove it
             if char in OTHER_CHARACTERS_SL:
-                del json[char]
+                del characters_json[char]
 
     # Other characters we will remove manually
-    return json
+    return characters_json
+
+
+def get_book_corefs(coref_json):
+    """
+    Gets book coreferences from a JSON file
+    :param coref_json: JSON file containing coreferences
+    :return: dictionary of coreferences
+    """
+
+    corefs = []
+
+    # Recursively go through the JSON file and check if we've reached the lowest level,
+    # i.e. the coreferences, in that case add them to the dictionary
+    for coref in coref_json:
+
+        # We have not reached the lowest level yet, so recursively call the function
+        if type(coref) is list:
+            corefs += get_book_corefs(coref)
+
+        # We have reached the lowest level, so add the coreference to the dictionary
+        else:
+            c = {
+                'start': coref['start_char'],
+                'end': coref['end_char'],
+                'text': coref['text']
+            }
+            corefs.append(c)
+
+    return corefs
+
+
+def find_character_sentences(characters, book_text, nlp, coref_json=None, find_mode='direct', lang='en'):
+    """
+    Finds sentences in which characters appear
+    :param characters: dictionary of characters
+    :param book_text: the book text
+    :param nlp: classla or stanza pipeline
+    :param coref_json: a JSON object containing co-references and their positions
+    :param find_mode: mode of finding sentences ('direct', 'lemma' or 'coref')
+    :return: list of sentences
+    """
+
+    characters_sentences = {}
+
+    # 1. Directly search for character names in sentences
+    if find_mode == 'direct':
+        if lang == 'en':
+            # Tokenize text into sentences
+            sentences = sent_tokenize(book_text)
+        elif lang == 'sl':
+            # Tokenize text into sentences
+            sentences = sent_tokenize(book_text, 'slovene')
+        else:
+            raise Exception('Language not supported')
+
+        for c, _ in characters.items():
+            characters_sentences[c] = []
+
+            cc = c # Current character
+            # If slovene, remove the last letter so that the name is "normalised"
+            if lang == 'sl':
+                cc = c[:-1]
+
+            # Find sentences in which the character appears
+            for sentence in sentences:
+                if cc in sentence:
+                    characters_sentences[c].append(sentence)
+
+    # 2. Search for character lemmas in sentences
+    elif find_mode == 'lemma':
+        if lang == 'en':
+            # Tokenize text into sentences
+            sentences = sent_tokenize(book_text)
+        elif lang == 'sl':
+            # Tokenize text into sentences
+            sentences = sent_tokenize(book_text, 'slovene')
+        else:
+            raise Exception('Language not supported')
+
+        for sentence in sentences:  # To avoid lemmatizing the same sentence multiple times it's in top loop here
+            # Lemmatize current sentence
+            sent = nlp(sentence)
+            lemmas = [word.lemma for word in sent.sentences[0].words]
+
+            for c, _ in characters.items():
+                if c not in characters_sentences:
+                    characters_sentences[c] = []
+
+                cc = nlp(c).sentences[0].words[0].lemma
+
+                # Check if character lemma is in sentence lemmas
+                if cc in lemmas:
+                    characters_sentences[c].append(sentence)
+
+    # 3. Search for character co-references in sentences (replacing pronouns with character names) then preforming the
+    #    same as in direct mode
+    elif find_mode == 'coref':
+        # Replace pronouns with character names
+        book_text = replace_text(book_text, coref_json)
+
+        if lang == 'en':
+            # Tokenize text into sentences
+            sentences = sent_tokenize(book_text)
+        elif lang == 'sl':
+            # Tokenize text into sentences
+            sentences = sent_tokenize(book_text, 'slovene')
+        else:
+            raise Exception('Language not supported')
+
+        # Extract sentences in a way similar to direct mode
+        for c, _ in characters.items():
+            characters_sentences[c] = []
+
+            # Find sentences in which the character appears
+            for sentence in sentences:
+                if c in sentence:
+                    characters_sentences[c].append(sentence)
+
+    # If invalid mode, raise exception
+    else:
+        raise Exception('Invalid find mode')
+
+    return characters_sentences
+
+
+def replace_text(text, replacements):
+    """
+    Replaces text in a string with text from a list of replacements
+    :param text: string to replace text in
+    :param replacements: list of replacements (dictionaries with keys 'start', 'end' and 'text')
+    :return: string with replaced text
+    """
+    offset = 0
+
+    # Replace text with offset
+    for replacement in replacements:
+        start_index = replacement['start'] + offset
+        end_index = replacement['end'] + offset
+        replacement_text = replacement['text']
+
+        offset += len(replacement_text) - (end_index - start_index)
+        text = text[:start_index] + replacement_text + text[end_index:]
+
+    return text

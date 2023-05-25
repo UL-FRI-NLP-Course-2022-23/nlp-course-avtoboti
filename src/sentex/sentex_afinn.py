@@ -1,63 +1,49 @@
-import numpy as np
-from nltk.tokenize import sent_tokenize
+from common import find_character_sentences
 
 
-def sentiment_analysis(characters, book_text, nlp, afinn, lang='en'):
+def sentiment_analysis(characters, book_text, afinn, nlp, coref_json=None, find_mode='direct', lang='en'):
     """
     Sentiment analysis using Afinn
     :param characters: dictionary of characters
     :param book_text: text of the book
     :param nlp: stanza pipeline
     :param afinn: Afinn dictionary
+    :param coref_json: a JSON object containing co-references and their positions
+    :param find_mode: mode of finding sentences with characters ('direct', 'lemma' or 'coref')
     :param lang: language of the book
     :return: dictionary of characters and their sentiments
     """
 
-    if lang == 'en':
-        # Tokenize text into sentences
-        sentences = sent_tokenize(book_text)
-    elif lang == 'sl':
-        # Tokenize text into sentences
-        sentences = sent_tokenize(book_text, 'slovene')
-    else:
-        raise Exception('Language not supported')
+    # Find sentences containing characters
+    characters_sentences = find_character_sentences(characters, book_text, nlp,
+                                                    coref_json=coref_json, find_mode=find_mode, lang=lang)
 
-    sentiments = np.zeros(len(characters))
+    sentiments = characters.copy()
 
-    i = 0
-    for c, _ in characters.items():
-        # Current character
-        cc = c
-        # If slovene, remove the last letter so that the name is "normalised"
-        if lang == 'sl':
-            cc = c[:-1]
+    for c, sentences in characters_sentences.items():
+        sentiments[c] = {
+            'frequency': characters[c],
+            'sentiment': 0
+        }
 
-        all_occurrences = 0
         for sentence in sentences:
-            if cc in sentence:
-                all_occurrences += 1
-                if lang == 'en':
-                    sentiments[i] += afinn.score(sentence) / 5
-                elif lang == 'sl':
-                    sentiments[i] += afinn_score(sentence, afinn, nlp) / 5
+            if lang == 'en':
+                sentiments[c]['sentiment'] += afinn.score(sentence) / 5
+            elif lang == 'sl':
+                sentiments[c]['sentiment'] += afinn_score_slovene(sentence, afinn, nlp) / 5
 
-        # Average the sentiment
-        if all_occurrences > 0:
-            sentiments[i] /= all_occurrences
-
-        i += 1
-
-    # Create a dictionary of characters and their sentiments
-    sentiments_dir = dict(zip(characters.keys(), sentiments))
+            # Average the sentiment
+            if len(sentences) > 0:
+                sentiments[c]['sentiment'] /= len(sentences)
 
     # Move the mean to 0
     # mean = np.mean(list(sentiments_dir.values()))
     # sentiments_dir = {k: v - mean for k, v in sentiments_dir.items()}
 
-    return sentiments_dir
+    return sentiments
 
 
-def afinn_score(sentence, afinn, nlp):
+def afinn_score_slovene(sentence, afinn, nlp):
     score = 0
     lemma_count = 0
     doc = nlp(sentence)

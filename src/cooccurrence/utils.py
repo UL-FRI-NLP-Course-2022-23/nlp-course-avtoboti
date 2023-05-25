@@ -2,6 +2,8 @@ ess_dir = "../../data/english_short_stories"
 
 ess_characters_json = "../../data/characters_by_stories.json"
 
+ess_coref_json = "../../data/named_entities_by_stories.json"
+
 ess_characters_afinn_json = "../../data/ess_afinn_sentiments.json"
 ess_characters_vader_json = "../../data/ess_vader_sentiments.json"
 ess_characters_bert_json = "../../data/ess_bert_sentiments.json"
@@ -25,6 +27,8 @@ ess_characters_dict = {
 sn_dir = "../../data/slovenian_novels"
 
 sn_characters_json = "../../data/characters_by_stories_slo_novels.json"
+
+sn_coref_json = "../../data/named_entities_by_stories_slo_novels.json"
 
 sn_characters_afinn_json = "../../data/sn_afinn_sentiments.json"
 sn_characters_vader_json = "../../data/sn_vader_sentiments.json"
@@ -63,6 +67,8 @@ sn_characters_dict = {
 sss_dir = "../../data/slovenian_short_stories"
 
 sss_characters_json = "../../data/characters_by_stories_slo_short_stories.json"
+
+sss_coref_json = "../../data/named_entities_by_stories_slo_short_stories.json"
 
 sss_characters_afinn_json = "../../data/sss_afinn_sentiments.json"
 sss_characters_vader_json = "../../data/sss_vader_sentiments.json"

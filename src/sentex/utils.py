@@ -4,14 +4,16 @@ ess_dir = "../../data/english_short_stories"
 
 ess_characters_json = "../../data/characters_by_stories.json"
 
+ess_coref_json = "../../data/named_entities_by_stories.json"
+
 ess_characters_dict = {
     'Henry_Red_Chief.txt': 0,
-    'Hills Like White Elephants.txt': 1,
-    'LeiningenVstheAnts.txt': 2,
-    'The Lady or the Tiger Original.txt': 3,
-    'The Most Dangerous Game.txt': 4,
-    'The Tell Tale Heart.txt': 5,
-    'the_gift_of_the_magi_0_Henry.txt': 6
+    'Hills Like White Elephants.txt': 3,
+    'LeiningenVstheAnts.txt': 4,
+    'The Lady or the Tiger Original.txt': 2,
+    'The Most Dangerous Game.txt': 6,
+    'The Tell Tale Heart.txt': 1,
+    'the_gift_of_the_magi_0_Henry.txt': 5
 }
 
 # Slovenian novels
@@ -19,6 +21,8 @@ ess_characters_dict = {
 sn_dir = "../../data/slovenian_novels"
 
 sn_characters_json = "../../data/characters_by_stories_slo_novels.json"
+
+sn_coref_json = "../../data/named_entities_by_stories_slo_novels.json"
 
 sn_characters_dict = {
     'Bajonetni_napad.txt': 0,
@@ -49,6 +53,9 @@ sn_characters_dict = {
 sss_dir = "../../data/slovenian_short_stories"
 
 sss_characters_json = "../../data/characters_by_stories_slo_short_stories.json"
+
+sss_coref_json = "../../data/named_entities_by_stories_slo_short_stories.json"
+sss_coref_replaced_json = "../../data/named_entities_by_stories_slo_short_stories_replaced.json"
 
 sss_characters_dict = {
     'Boter_petelin_in_njegova_zgodba.txt': 0,

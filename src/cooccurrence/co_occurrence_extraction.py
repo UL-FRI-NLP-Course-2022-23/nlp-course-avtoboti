@@ -1,13 +1,17 @@
 from nltk.tokenize import sent_tokenize
 
 
-def extract_co_occurrences(characters, book_text, nlp, finding_method='direct', lang='en'):
+def extract_co_occurrences(characters, book_text, nlp, coref_json=None, find_mode='direct', lang='en'):
     """
+    Extract co-occurrences of characters in the book text. The co-occurrences are extracted in three ways: by directly
+    searching for the character name in the sentence, by searching for the character name in the sentence, but
+    lemmatizing the sentence first or by choosing the sentences based on existing co-references; this has a
+    predisposition that we already have a list of co-references and their positions in the text
     :param characters: characters and their sentiments
     :param book_text: text of the book
     :param nlp: stanza pipeline
-    :param finding_method: method of finding characters (and co-occurrences) in the text ('direct', 'lemmatized'
-           or 'coref')
+    :param coref_json: a JSON object containing co-references and their positions
+    :param find_mode: method of finding characters (and co-occurrences) in the text ('direct', 'lemma' or 'coref')
     :param lang: language of the book ('en' or 'sl')
     :return: dictionary of bigrams and their sentiments
     """
@@ -24,7 +28,7 @@ def extract_co_occurrences(characters, book_text, nlp, finding_method='direct', 
 
     # We can search for characters in three ways:
     # 1. By directly searching for the character name in the sentence
-    if finding_method == 'direct':
+    if find_mode == 'direct':
         for c1, _ in characters.items():
             for c2, _ in characters.items():
                 # Check if entry is already in the dictionary
@@ -42,7 +46,7 @@ def extract_co_occurrences(characters, book_text, nlp, finding_method='direct', 
                             co_occurrences[(c1, c2)] += 1
 
     # 2. By searching for the character name in the sentence, but lemmatizing the sentence first
-    elif finding_method == 'lemmatized':
+    elif find_mode == 'lemma':
         for sentence in sentences: # To avoid lemmatizing the same sentence multiple times it's in top loop here
             # Lemmatize current sentence
             sent = nlp(sentence)
@@ -67,7 +71,7 @@ def extract_co_occurrences(characters, book_text, nlp, finding_method='direct', 
     # 3. By choosing the sentences based on existing co-references; this has a
     #    predisposition that we already have a list of co-references (or that we
     #    extract them from the text)
-    elif finding_method == 'coref':
+    elif find_mode == 'coref':
         if lang == 'en':
             raise NotImplementedError('This method is not yet implemented')
         elif lang == 'sl':

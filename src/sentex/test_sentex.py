@@ -1,3 +1,5 @@
+import stanza
+
 import sentex_nltk
 import sentex_afinn
 import sentex_bert
@@ -10,7 +12,7 @@ from transformers import BertTokenizer, BertForSequenceClassification,\
     AutoTokenizer, AutoModelForSequenceClassification
 
 mode = "vader"
-sentiment_type = "longer_negative"
+sentiment_type = "mixed"
 
 if sentiment_type == "positive":
     text = "Janez je bil vesel. Peter je bil neverjetno vesel."
@@ -46,25 +48,27 @@ elif sentiment_type == "longer_negative":
 
 characters = {"Janez": 4, "Peter": 2}
 
-if "afinn_lex" in mode:
+nlp = stanza.Pipeline('en', processors='tokenize,pos,lemma')
+nlp_sl = classla.Pipeline('sl', dir='../../models/classla_resources', processors='tokenize,pos,lemma')
+
+if "afinn" in mode:
     afinn = Afinn(language='en')
 
     afinn_sl = sentex_afinn.create_slovene_afinn_dict()
-    nlp_sl = classla.Pipeline('sl', processors='tokenize,lemma')
 
     sentiments = sentex_afinn.sentiment_analysis(characters, text, nlp_sl, afinn_sl, lang='sl')
-    print("afinn_lex sl: ", sentiments)
-    sentiments = sentex_afinn.sentiment_analysis(characters, text_en, None, afinn, lang='en')
-    print("afinn_lex en: ", sentiments)
-elif "nltk" in mode:
+    print("afinn sl: ", sentiments)
+    sentiments = sentex_afinn.sentiment_analysis(characters, text_en, nlp, afinn, lang='en')
+    print("afinn en: ", sentiments)
+elif "vader" in mode:
     sia = SentimentIntensityAnalyzer()
 
-    sentiments = sentex_nltk.sentiment_analysis(characters, text, sia, lang='sl')
+    sentiments = sentex_nltk.sentiment_analysis(characters, text, sia, nlp_sl, lang='sl')
     print("nlkt vader sl: ", sentiments)
-    sentiments = sentex_nltk.sentiment_analysis(characters, text_en, sia, lang='en')
+    sentiments = sentex_nltk.sentiment_analysis(characters, text_en, sia, nlp, lang='en')
     print("nlkt vader en: ", sentiments)
-else:
-    model_name = "cjvt/sloberta-sentinews-sentence"
+elif "bert" in mode:
+    model_name = 'cjvt/sloberta-sentinews-sentence'
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -76,7 +80,9 @@ else:
     device_en = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model_en.to(device_en)
 
-    sentiments = sentex_bert.sentiment_analysis(characters, text, model, tokenizer, device, lang='sl')
+    sentiments = sentex_bert.sentiment_analysis(characters, text, model, tokenizer, device, nlp_sl, lang='sl')
     print("bert sl: ", sentiments)
-    sentiments = sentex_bert.sentiment_analysis(characters, text_en, model_en, tokenizer_en, device_en, lang='en')
+    sentiments = sentex_bert.sentiment_analysis(characters, text_en, model_en, tokenizer_en, device_en, nlp, lang='en')
     print("bert en: ", sentiments)
+else:
+    raise Exception('Mode not supported.')

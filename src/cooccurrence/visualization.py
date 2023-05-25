@@ -17,8 +17,11 @@ def visualize_connections(characters, connections):
         G = nx.Graph()
 
         # Create nodes
-        for c, sentiment in characters.items():
-            G.add_node(c, sentiment=sentiment)
+        for c, val in characters.items():
+            sentiment = val['sentiment']
+            frequency = val['frequency']
+
+            G.add_node(c, sentiment=sentiment, frequency=frequency)
 
         # Create edges
         for c1, c2 in connections:
@@ -27,6 +30,7 @@ def visualize_connections(characters, connections):
 
         node_colors = [G.nodes[node]['sentiment'] for node in G.nodes]
         edge_widths = [math.log2(G.edges[edge]['weight']) + 1 for edge in G.edges]
+        node_sizes = [(math.log2(G.nodes[node]['frequency']) + 1) * 250 + 500 for node in G.nodes]
 
         # Create colormap
         cmap = plt.cm.get_cmap('RdYlGn')
@@ -39,7 +43,7 @@ def visualize_connections(characters, connections):
         nx.draw(G, pos,
                 node_color=node_colors, edge_color=edge_widths,
                 cmap=cmap, edge_cmap=edge_cmap,
-                width=2.0, with_labels=True, node_size=200)
+                width=2.0, with_labels=True, node_size=node_sizes)
 
         # Draw edges with widths based on weights of connections
         nx.draw_networkx_edges(G, pos, width=edge_widths, edge_color='gray')

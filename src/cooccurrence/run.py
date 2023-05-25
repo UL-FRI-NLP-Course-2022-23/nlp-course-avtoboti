@@ -3,24 +3,24 @@ import os
 
 import stanza
 import classla
-
-from utils import *
-
 from co_occurrence_extraction import extract_co_occurrences
 from common import read_json_file, get_book_text, save_json_file
 
+from utils import *
+
 
 # Go through all the books in the folder
-def extract_all_co_occurrences(stories, mode):
+def extract_all_co_occurrences(stories, mode, find_mode='direct'):
     """
     Extracts co-occurrences for all books in the folder
     :param stories: stories to be analyzed
     :param mode: sentiment analysis mode
-    :param infrequent_characters: number of times a character has to appear in the book to be considered
+    :param find_mode: method of finding characters (and co-occurrences) in the text ('direct', 'lemma' or 'coref')
     :return: JSON with sentiment scores for each character for each book
     """
 
     co_occurrences = []
+    coref_json = None
 
     # Choose folder
     if stories == 'ess':
@@ -35,6 +35,13 @@ def extract_all_co_occurrences(stories, mode):
         else:
             raise Exception("Mode not supported")
         lang = 'en'
+        if find_mode == 'coref':
+            if lang == 'en':
+                coref_json = ess_coref_json
+            elif lang == 'sl':
+                raise Exception("Coreference resolution not supported for Slovene")
+            else:
+                raise Exception("Language not supported")
     elif stories == 'sn':
         folder = sn_dir
         character_dict = sn_characters_dict
@@ -47,6 +54,13 @@ def extract_all_co_occurrences(stories, mode):
         else:
             raise Exception("Mode not supported")
         lang = 'sl'
+        if find_mode == 'coref':
+            if lang == 'en':
+                coref_json = sn_coref_json
+            elif lang == 'sl':
+                raise Exception("Coreference resolution not supported for Slovene")
+            else:
+                raise Exception("Language not supported")
     elif stories == 'sss':
         folder = sss_dir
         character_dict = sss_characters_dict
@@ -59,6 +73,13 @@ def extract_all_co_occurrences(stories, mode):
         else:
             raise Exception("Mode not supported")
         lang = 'sl'
+        if find_mode == 'coref':
+            if lang == 'en':
+                coref_json = sss_coref_json
+            elif lang == 'sl':
+                raise Exception("Coreference resolution not supported for Slovene")
+            else:
+                raise Exception("Language not supported")
     else:
         raise Exception("Stories not supported")
 
@@ -87,7 +108,8 @@ def extract_all_co_occurrences(stories, mode):
         text = get_book_text(os.path.join(folder, filename))
 
         # Get co-occurrences
-        co_occurrences.append(extract_co_occurrences(sentiments, text, nlp))
+        co_occurrences.append(extract_co_occurrences(sentiments, text, nlp,
+                                                     coref_json=coref_json, find_mode=find_mode, lang=lang))
 
     return co_occurrences
 
@@ -99,7 +121,7 @@ if __name__ == '__main__':
     stories_arg = sys.argv[1]
     mode_arg = sys.argv[2]
 
-    stories_co_occurrences = extract_all_co_occurrences(stories_arg, mode_arg)
+    stories_co_occurrences = extract_all_co_occurrences(stories_arg, mode_arg, find_mode='direct')
 
     # Convert tuple keys to string keys
     for i in range(len(stories_co_occurrences)):
@@ -109,4 +131,4 @@ if __name__ == '__main__':
             stories_co_occurrences[i] = {}
 
     save_json_file(stories_co_occurrences,
-                   os.path.join('..', '..', 'data', stories_arg + '_' + mode_arg + '_co_occurrences.json'))
+                   os.path.join('..', '..', 'data', 'co_occurrences', stories_arg + '_' + mode_arg + '_co_occurrences.json'))
