@@ -23,7 +23,7 @@ sentiments = {
 
 # Extract co-occurrences using Classla
 nlp = classla.Pipeline('sl', dir='../../models/classla_resources', processors='tokenize,pos,lemma')
-co_occurrences = extract_co_occurrences(sentiments, text, nlp, find_mode='lemma')
+co_occurrences = extract_co_occurrences(sentiments, text, nlp, find_mode='lemma', lang='sl')
 
 # Print results
 print(co_occurrences)
@@ -32,7 +32,7 @@ print(co_occurrences)
 visualize_connections(sentiments, co_occurrences)
 
 # Results:
-{
-    ('Janez', 'Peter'): 2,
-    ('Janez', 'Tine'): 1
-}
+# {
+#     ('Janez', 'Peter'): 2,
+#     ('Janez', 'Tine'): 1
+# }

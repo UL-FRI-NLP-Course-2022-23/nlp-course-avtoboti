@@ -3,7 +3,7 @@ import sys
 import os
 
 import nltk
-from nltk.tokenize import sent_tokenize
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 ENCODINGS = [
     "utf-8",
@@ -198,15 +198,18 @@ def find_character_sentences(characters, book_text, nlp, coref_json=None, find_m
         for c, _ in characters.items():
             characters_sentences[c] = []
 
-            cc = c # Current character
+            cc = c  # Current character
+
             # If slovene, remove the last letter so that the name is "normalised"
             if lang == 'sl':
                 cc = c[:-1]
 
             # Find sentences in which the character appears
             for sentence in sentences:
-                if cc in sentence:
-                    characters_sentences[c].append(sentence)
+                for word in word_tokenize(sentence):
+                    if cc in word:
+                        characters_sentences[c].append(sentence)
+                        break
 
     # 2. Search for character lemmas in sentences
     elif find_mode == 'lemma':
@@ -264,7 +267,7 @@ def find_character_sentences(characters, book_text, nlp, coref_json=None, find_m
 
             # Find sentences in which the character appears
             for sentence in sentences:
-                if c in sentence:
+                if c in word_tokenize(sentence):
                     characters_sentences[c].append(sentence)
 
     # If invalid mode, raise exception

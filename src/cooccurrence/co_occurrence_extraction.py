@@ -1,4 +1,4 @@
-from nltk.tokenize import sent_tokenize
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 
 def extract_co_occurrences(characters, book_text, nlp, coref_json=None, find_mode='direct', lang='en'):
@@ -39,11 +39,17 @@ def extract_co_occurrences(characters, book_text, nlp, coref_json=None, find_mod
                         cc1 = c1[:-1] if lang == 'sl' else c1
                         cc2 = c2[:-1] if lang == 'sl' else c2
 
-                        if cc1 in sentence and cc2 in sentence:
+                        # Tokenize sentence
+                        ts = word_tokenize(sentence)
+
+                        # Check if both characters are in the sentence
+                        if any(cc1 in word for word in ts) and \
+                                any(cc2 in word for word in ts):
+                            # Add entry to the dictionary
                             if (c1, c2) not in co_occurrences:
                                 co_occurrences[(c1, c2)] = 0
 
-                            co_occurrences[(c1, c2)] += 1
+                            co_occurrences[(c1, c2)] += 1  # Increment co-occurrence count
 
     # 2. By searching for the character name in the sentence, but lemmatizing the sentence first
     elif find_mode == 'lemma':
@@ -85,10 +91,16 @@ def extract_co_occurrences(characters, book_text, nlp, coref_json=None, find_mod
                 # Check if entry is already in the dictionary
                 if c1 != c2 and (c2, c1) not in co_occurrences:
                     for sentence in sentences:
-                        if c1 in sentence and c2 in sentence:
+                        # Tokenize sentence
+                        ts = word_tokenize(sentence)
+
+                        # Check if both characters are in the sentence
+                        if any(c1 in word for word in ts) and \
+                                any(c2 in word for word in ts):
+                            # Add entry to the dictionary
                             if (c1, c2) not in co_occurrences:
                                 co_occurrences[(c1, c2)] = 0
 
-                            co_occurrences[(c1, c2)] += 1
+                            co_occurrences[(c1, c2)] += 1  # Increment co-occurrence count
 
     return co_occurrences
