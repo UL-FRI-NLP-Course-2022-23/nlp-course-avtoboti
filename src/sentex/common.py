@@ -103,7 +103,7 @@ def remove_infrequent_characters(characters_json, n):
     copy_dict = characters_json.copy()
 
     for char, freq in copy_dict.items():
-        if freq <= n:
+        if freq < n:
             del characters_json[char]
 
     return characters_json
@@ -238,7 +238,16 @@ def find_character_sentences(characters, book_text, nlp, coref_json=None, find_m
     #    same as in direct mode
     elif find_mode == 'coref':
         # Replace pronouns with character names
-        book_text = replace_text(book_text, coref_json)
+
+        # If English, we have already passed in such text that it already contains co-references replaced with
+        # character names
+        if lang == 'sl':
+            raise Exception('Co-reference resolution not supported for Slovene')
+        elif lang != 'en':
+            raise Exception('Language not supported')
+
+        #  Deprecated for now
+        # book_text = replace_text(book_text, coref_json)
 
         if lang == 'en':
             # Tokenize text into sentences

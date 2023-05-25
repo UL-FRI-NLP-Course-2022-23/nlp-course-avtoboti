@@ -42,6 +42,7 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
         if find_mode == 'coref':
             if lang == 'en':
                 all_coref_json = read_json_file(ess_coref_json)
+                all_coref_replaced_json = read_json_file(ess_coref_replaced_json)
             elif lang == 'sl':
                 raise Exception("Coreference resolution not supported for Slovene")
             else:
@@ -54,6 +55,7 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
         if find_mode == 'coref':
             if lang == 'en':
                 all_coref_json = read_json_file(sn_coref_json)
+                all_coref_replaced_json = read_json_file(sn_coref_replaced_json)
             elif lang == 'sl':
                 raise Exception("Coreference resolution not supported for Slovene")
             else:
@@ -66,7 +68,7 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
         if find_mode == 'coref':
             if lang == 'en':
                 all_coref_json = read_json_file(sss_coref_json)
-                all_coref_replaced_json = read_json_file(sss_coref_json)
+                all_coref_replaced_json = read_json_file(sss_coref_replaced_json)
             elif lang == 'sl':
                 raise Exception("Coreference resolution not supported for Slovene")
             else:
@@ -125,26 +127,36 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
             sentiments.append(None)
             continue
 
-        # Get book text
-        text = get_book_text(os.path.join(folder, filename))
+        # Remove infrequent and false characters. Note: if all the characters are infrequent, lower the threshold to
+        # the highest frequency of a character in the book
+        if all(value < infrequent_characters for value in characters_json.values()):
+            min_characters = 0
+            for c, freq in characters_json.items():
+                if freq > min_characters:
+                    min_characters = freq
+        else:
+            min_characters = infrequent_characters
 
-        # Remove infrequent and false characters
-        characters_json = remove_infrequent_characters(characters_json, infrequent_characters)
+        # Preform removal of infrequent and false characters
+        characters_json = remove_infrequent_characters(characters_json, min_characters)
         characters_json = remove_false_characters(characters_json, lang=lang)
 
-        # Get book with replaced co-references
+        # Get book text; if coref and
         if find_mode == 'coref':
             if lang == 'en':
-                coref_json = all_coref_replaced_json[character_dict.get(filename)]
+                text = all_coref_replaced_json[character_dict.get(filename)]
             elif lang == 'sl':
                 raise Exception('Coreference resolution not yet supported for Slovene')
             else:
                 raise Exception('Language not supported')
+        else:
+            # Get book text
+            text = get_book_text(os.path.join(folder, filename))
 
         # Deprecated - coreference resolution is now done by directly reading the JSON file where co-references
         # have already been replaced by the character names
         # Get book co-references
-        # coref_json = None
+        coref_json = None
         # if all_coref_json is not None:
             # coref_json = get_book_corefs(all_coref_json[character_dict.get(filename)])
 

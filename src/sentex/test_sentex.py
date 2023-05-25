@@ -11,7 +11,7 @@ import torch
 from transformers import BertTokenizer, BertForSequenceClassification,\
     AutoTokenizer, AutoModelForSequenceClassification
 
-mode = "vader"
+mode = "bert"
 sentiment_type = "mixed"
 
 if sentiment_type == "positive":

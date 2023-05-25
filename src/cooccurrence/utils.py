@@ -3,14 +3,15 @@ ess_dir = "../../data/english_short_stories"
 ess_characters_json = "../../data/characters_by_stories.json"
 
 ess_coref_json = "../../data/named_entities_by_stories.json"
+ess_coref_replaced_json = "../../data/resolved_texts_stories.json"
 
-ess_characters_afinn_json = "../../data/ess_afinn_sentiments.json"
-ess_characters_vader_json = "../../data/ess_vader_sentiments.json"
-ess_characters_bert_json = "../../data/ess_bert_sentiments.json"
+ess_characters_afinn_json = "../../data/sentiments/ess_afinn_sentiments.json"
+ess_characters_vader_json = "../../data/sentiments/ess_vader_sentiments.json"
+ess_characters_bert_json =  "../../data/sentiments/ess_bert_sentiments.json"
 
-ess_co_occurrences_afinn_json = "../../data/ess_afinn_co_occurrences.json"
-ess_co_occurrences_vader_json = "../../data/ess_vader_co_occurrences.json"
-ess_co_occurrences_bert_json = "../../data/ess_bert_co_occurrences.json"
+ess_co_occurrences_afinn_json = "../../data/co_occurrences/ess_afinn_co_occurrences.json"
+ess_co_occurrences_vader_json = "../../data/co_occurrences/ess_vader_co_occurrences.json"
+ess_co_occurrences_bert_json =  "../../data/co_occurrences/ess_bert_co_occurrences.json"
 
 ess_characters_dict = {
     'Henry_Red_Chief.txt': 0,
@@ -27,16 +28,17 @@ ess_characters_dict = {
 sn_dir = "../../data/slovenian_novels"
 
 sn_characters_json = "../../data/characters_by_stories_slo_novels.json"
+sn_coref_replaced_json = "../../data/resolved_texts_slo_novels.json"
 
 sn_coref_json = "../../data/named_entities_by_stories_slo_novels.json"
 
-sn_characters_afinn_json = "../../data/sn_afinn_sentiments.json"
-sn_characters_vader_json = "../../data/sn_vader_sentiments.json"
-sn_characters_bert_json = "../../data/sn_bert_sentiments.json"
+sn_characters_afinn_json = "../../data/sentiments/sn_afinn_sentiments.json"
+sn_characters_vader_json = "../../data/sentiments/sn_vader_sentiments.json"
+sn_characters_bert_json =  "../../data/sentiments/sn_bert_sentiments.json"
 
-sn_co_occurrences_afinn_json = "../../data/sn_afinn_co_occurrences.json"
-sn_co_occurrences_vader_json = "../../data/sn_vader_co_occurrences.json"
-sn_co_occurrences_bert_json = "../../data/sn_bert_co_occurrences.json"
+sn_co_occurrences_afinn_json = "../../data/co_occurrences/sn_afinn_co_occurrences.json"
+sn_co_occurrences_vader_json = "../../data/co_occurrences/sn_vader_co_occurrences.json"
+sn_co_occurrences_bert_json =  "../../data/co_occurrences/sn_bert_co_occurrences.json"
 
 sn_characters_dict = {
     'Bajonetni_napad.txt': 0,
@@ -69,14 +71,15 @@ sss_dir = "../../data/slovenian_short_stories"
 sss_characters_json = "../../data/characters_by_stories_slo_short_stories.json"
 
 sss_coref_json = "../../data/named_entities_by_stories_slo_short_stories.json"
+sss_coref_replaced_json = "../../data/resolved_texts_slo_short_stories.json"
 
-sss_characters_afinn_json = "../../data/sss_afinn_sentiments.json"
-sss_characters_vader_json = "../../data/sss_vader_sentiments.json"
-sss_characters_bert_json = "../../data/sss_bert_sentiments.json"
+sss_characters_afinn_json = "../../data/sentiments/sss_afinn_sentiments.json"
+sss_characters_vader_json = "../../data/sentiments/sss_vader_sentiments.json"
+sss_characters_bert_json =  "../../data/sentiments/sss_bert_sentiments.json"
 
-sss_co_occurrences_afinn_json = "../../data/sss_afinn_co_occurrences.json"
-sss_co_occurrences_vader_json = "../../data/sss_vader_co_occurrences.json"
-sss_co_occurrences_bert_json = "../../data/sss_bert_co_occurrences.json"
+sss_co_occurrences_afinn_json = "../../data/co_occurrences/sss_afinn_co_occurrences.json"
+sss_co_occurrences_vader_json = "../../data/co_occurrences/sss_vader_co_occurrences.json"
+sss_co_occurrences_bert_json =  "../../data/co_occurrences/sss_bert_co_occurrences.json"
 
 sss_characters_dict = {
     'Boter_petelin_in_njegova_zgodba.txt': 0,

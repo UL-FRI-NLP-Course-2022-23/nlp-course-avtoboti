@@ -1,37 +1,164 @@
 [
   {
-    "Ebenezer": -0.4166666666666667,
-    "Dorset": -0.375,
-    "Bill": -0.42727272727272725,
-    "Driscoll": -0.5,
-    "Sam": -0.6666666666666666,
-    "Hank": -0.375,
-    "Old": -0.5,
-    "Trapper": -0.5
+    "Ebenezer": {
+      "frequency": 254,
+      "sentiment": 0.09307247735082791
+    },
+    "Dorset": {
+      "frequency": 254,
+      "sentiment": 0.09307247735082791
+    },
+    "Bill": {
+      "frequency": 164,
+      "sentiment": 0.12263355201499537
+    },
+    "Driscoll": {
+      "frequency": 124,
+      "sentiment": 0.005951265229615754
+    },
+    "Sam": {
+      "frequency": 26,
+      "sentiment": 0.13019368947204002
+    },
+    "Hank": {
+      "frequency": 9,
+      "sentiment": 0.3468603561387067
+    },
+    "HENRY": {
+      "frequency": 4,
+      "sentiment": -0.1531396438612933
+    },
+    "Old": {
+      "frequency": 4,
+      "sentiment": 0.0968603561387067
+    },
+    "Trapper": {
+      "frequency": 3,
+      "sentiment": -0.06980631052795994
+    },
+    "i.": {
+      "frequency": 2,
+      "sentiment": -0.4031396438612933
+    },
+    "David": {
+      "frequency": 2,
+      "sentiment": -0.4031396438612933
+    },
+    "I\u00d5ll": {
+      "frequency": 2,
+      "sentiment": 0.19686035613870667
+    },
+    "Black": {
+      "frequency": 2,
+      "sentiment": -0.028139643861293306
+    },
+    "Scout": {
+      "frequency": 2,
+      "sentiment": -0.028139643861293306
+    }
   },
   {
-    "Jig": -0.75
+    "Jig": {
+      "frequency": 6,
+      "sentiment": 0.0
+    }
   },
   {
-    "Leiningen": -0.2578125,
-    "Macbeth": 0.0
+    "Leiningen": {
+      "frequency": 303,
+      "sentiment": 0.04545454545454547
+    },
+    "Macbeth": {
+      "frequency": 3,
+      "sentiment": -0.045454545454545414
+    }
   },
-  {},
   {
-    "Rain": -0.29545454545454547,
-    "Zaroff": -0.3,
-    "Whitney": -0.8333333333333334,
-    "Cossack": -0.4375,
-    "Ivan": -0.35714285714285715,
-    "Lazarus": 0.0
+    "Frank": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "R.": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "Stockton": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
   },
-  {},
   {
-    "Della": -0.47619047619047616,
-    "Jim": -0.21428571428571427,
-    "James": -0.25,
-    "Dillingham": -0.25,
-    "Young": -0.25,
-    "Combs": 0.5
+    "Rain": {
+      "frequency": 749,
+      "sentiment": -0.1554920634920635
+    },
+    "Zaroff": {
+      "frequency": 55,
+      "sentiment": 0.03795238095238096
+    },
+    "Whitney": {
+      "frequency": 19,
+      "sentiment": -0.31274206349206346
+    },
+    "Cossack": {
+      "frequency": 12,
+      "sentiment": 0.12475793650793651
+    },
+    "Ivan": {
+      "frequency": 8,
+      "sentiment": 0.1185079365079365
+    },
+    "Lazarus": {
+      "frequency": 3,
+      "sentiment": 0.2185079365079365
+    },
+    "Sanger": {
+      "frequency": 2,
+      "sentiment": -0.03149206349206349
+    }
+  },
+  {
+    "Edgar": {
+      "frequency": 170,
+      "sentiment": -0.09174311926605505
+    },
+    "Allan": {
+      "frequency": 170,
+      "sentiment": -0.09174311926605505
+    },
+    "Poe": {
+      "frequency": 166,
+      "sentiment": -0.09174311926605505
+    },
+    "poe": {
+      "frequency": 4,
+      "sentiment": 0.27522935779816515
+    }
+  },
+  {
+    "Della": {
+      "frequency": 144,
+      "sentiment": 0.025412492071134385
+    },
+    "Jim": {
+      "frequency": 99,
+      "sentiment": 0.213183315373975
+    },
+    "James": {
+      "frequency": 12,
+      "sentiment": -0.06956958678191227
+    },
+    "Dillingham": {
+      "frequency": 11,
+      "sentiment": -0.06956958678191227
+    },
+    "Young": {
+      "frequency": 11,
+      "sentiment": -0.06956958678191227
+    },
+    "Combs": {
+      "frequency": 8,
+      "sentiment": -0.02988704709937251
+    }
   }
 ]

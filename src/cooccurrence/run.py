@@ -37,7 +37,8 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
         lang = 'en'
         if find_mode == 'coref':
             if lang == 'en':
-                coref_json = ess_coref_json
+                all_coref_json = read_json_file(ess_coref_json)
+                all_coref_replaced_json = read_json_file(ess_coref_replaced_json)
             elif lang == 'sl':
                 raise Exception("Coreference resolution not supported for Slovene")
             else:
@@ -56,7 +57,8 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
         lang = 'sl'
         if find_mode == 'coref':
             if lang == 'en':
-                coref_json = sn_coref_json
+                all_coref_json = read_json_file(sn_coref_json)
+                all_coref_replaced_json = read_json_file(sn_coref_replaced_json)
             elif lang == 'sl':
                 raise Exception("Coreference resolution not supported for Slovene")
             else:
@@ -75,7 +77,8 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
         lang = 'sl'
         if find_mode == 'coref':
             if lang == 'en':
-                coref_json = sss_coref_json
+                all_coref_json = sss_coref_json
+                all_coref_replaced_json = read_json_file(sss_coref_replaced_json)
             elif lang == 'sl':
                 raise Exception("Coreference resolution not supported for Slovene")
             else:
@@ -104,8 +107,17 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
             co_occurrences.append(None)
             continue
 
-        # Get book text
-        text = get_book_text(os.path.join(folder, filename))
+        # Get book text; if coref and
+        if find_mode == 'coref':
+            if lang == 'en':
+                text = all_coref_replaced_json[character_dict.get(filename)]
+            elif lang == 'sl':
+                raise Exception('Coreference resolution not yet supported for Slovene')
+            else:
+                raise Exception('Language not supported')
+        else:
+            # Get book text
+            text = get_book_text(os.path.join(folder, filename))
 
         # Get co-occurrences
         co_occurrences.append(extract_co_occurrences(sentiments, text, nlp,
@@ -121,7 +133,7 @@ if __name__ == '__main__':
     stories_arg = sys.argv[1]
     mode_arg = sys.argv[2]
 
-    stories_co_occurrences = extract_all_co_occurrences(stories_arg, mode_arg, find_mode='direct')
+    stories_co_occurrences = extract_all_co_occurrences(stories_arg, mode_arg, find_mode='coref')
 
     # Convert tuple keys to string keys
     for i in range(len(stories_co_occurrences)):

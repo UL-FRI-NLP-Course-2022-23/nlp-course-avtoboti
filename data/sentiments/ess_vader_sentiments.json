@@ -1,42 +1,164 @@
 [
   {
-    "Ebenezer": 0.021683333333333332,
-    "Dorset": 0.10066666666666667,
-    "Bill": 0.008958181818181823,
-    "Driscoll": 0.22515000000000002,
-    "Sam": -0.13454999999999998,
-    "Hank": -0.131675,
-    "Old": -0.17556666666666665,
-    "Trapper": 0.0
+    "Ebenezer": {
+      "frequency": 254,
+      "sentiment": 0.14425850103443433
+    },
+    "Dorset": {
+      "frequency": 254,
+      "sentiment": 0.14425850103443433
+    },
+    "Bill": {
+      "frequency": 164,
+      "sentiment": -0.033627948512582106
+    },
+    "Driscoll": {
+      "frequency": 124,
+      "sentiment": -0.0296712608703274
+    },
+    "Sam": {
+      "frequency": 26,
+      "sentiment": -0.13294952926859582
+    },
+    "Hank": {
+      "frequency": 9,
+      "sentiment": -0.2368736959352625
+    },
+    "HENRY": {
+      "frequency": 4,
+      "sentiment": -0.23918619593526252
+    },
+    "Old": {
+      "frequency": 4,
+      "sentiment": -0.26831119593526254
+    },
+    "Trapper": {
+      "frequency": 3,
+      "sentiment": -0.2591695292685958
+    },
+    "i.": {
+      "frequency": 2,
+      "sentiment": -0.20660286260192923
+    },
+    "David": {
+      "frequency": 2,
+      "sentiment": 0.16306380406473747
+    },
+    "I\u00d5ll": {
+      "frequency": 2,
+      "sentiment": 0.3636838040647376
+    },
+    "Black": {
+      "frequency": 2,
+      "sentiment": 0.2955638040647374
+    },
+    "Scout": {
+      "frequency": 2,
+      "sentiment": 0.2955638040647374
+    }
   },
   {
-    "Jig": 0.0
+    "Jig": {
+      "frequency": 6,
+      "sentiment": 0.0
+    }
   },
   {
-    "Leiningen": -0.11281718750000001,
-    "Macbeth": -0.4939
-  },
-  {},
-  {
-    "Rain": 0.04615606060606059,
-    "Zaroff": 0.11739999999999999,
-    "Whitney": 0.057133333333333335,
-    "Cossack": 0.091525,
-    "Ivan": -0.012764285714285709,
-    "Lazarus": 0.2997
+    "Leiningen": {
+      "frequency": 303,
+      "sentiment": 0.23273552631578953
+    },
+    "Macbeth": {
+      "frequency": 3,
+      "sentiment": -0.23273552631578953
+    }
   },
   {
-    "Edgar": 0.5893,
-    "Allan": 0.5893,
-    "Poe": 0.5893,
-    "poe": 0.0
+    "Frank": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "R.": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "Stockton": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
   },
   {
-    "Della": 0.07713333333333335,
-    "Jim": 0.22496428571428573,
-    "James": 0.231875,
-    "Dillingham": 0.231875,
-    "Young": 0.231875,
-    "Combs": 0.5994
+    "Rain": {
+      "frequency": 749,
+      "sentiment": -0.06391639365079366
+    },
+    "Zaroff": {
+      "frequency": 55,
+      "sentiment": 0.016907361904761914
+    },
+    "Whitney": {
+      "frequency": 19,
+      "sentiment": 0.012651806349206332
+    },
+    "Cossack": {
+      "frequency": 12,
+      "sentiment": -0.17979819365079364
+    },
+    "Ivan": {
+      "frequency": 8,
+      "sentiment": 0.12735180634920634
+    },
+    "Lazarus": {
+      "frequency": 3,
+      "sentiment": 0.19325180634920636
+    },
+    "Sanger": {
+      "frequency": 2,
+      "sentiment": -0.10644819365079365
+    }
+  },
+  {
+    "Edgar": {
+      "frequency": 170,
+      "sentiment": -0.018832568807339453
+    },
+    "Allan": {
+      "frequency": 170,
+      "sentiment": -0.018832568807339453
+    },
+    "Poe": {
+      "frequency": 166,
+      "sentiment": -0.018832568807339453
+    },
+    "poe": {
+      "frequency": 4,
+      "sentiment": 0.056497706422018346
+    }
+  },
+  {
+    "Della": {
+      "frequency": 144,
+      "sentiment": -0.08431630595104356
+    },
+    "Jim": {
+      "frequency": 99,
+      "sentiment": 0.00041025479362030715
+    },
+    "James": {
+      "frequency": 12,
+      "sentiment": -0.12419372530588227
+    },
+    "Dillingham": {
+      "frequency": 11,
+      "sentiment": -0.12419372530588227
+    },
+    "Young": {
+      "frequency": 11,
+      "sentiment": -0.12419372530588227
+    },
+    "Combs": {
+      "frequency": 8,
+      "sentiment": 0.45648722707507017
+    }
   }
 ]

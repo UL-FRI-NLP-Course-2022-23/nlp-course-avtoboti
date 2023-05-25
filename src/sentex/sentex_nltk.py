@@ -1,3 +1,6 @@
+import math
+
+import numpy as np
 from googletrans import Translator
 
 from common import find_character_sentences
@@ -49,8 +52,15 @@ def sentiment_analysis(characters, book_text, sia, nlp, coref_json=None, find_mo
         if len(sentences) > 0:
             sentiments[c]['sentiment'] /= len(sentences)
 
+        # To account for the fact that some characters are mentioned more often than others and therefore have more
+        # probability that their sentiment will be differently classified (and therefore closer to 0 in the end),
+        # we multiply the sentiment by the frequency of the character on a logarithmic scale
+        # if find_mode == 'coref':  # We only do this for coref mode, because it's the most prone to this problem
+        #     sentiments[c]['sentiment'] *= math.log(len(sentences) + 1)
+
     # Move the mean to 0
-    # mean = np.mean(list(sentiments_dir.values()))
-    # sentiments_dir = {k: v - mean for k, v in sentiments_dir.items()}
+    mean = np.mean([sentiment['sentiment'] for sentiment in sentiments.values()])
+    for c, sentiment in sentiments.items():
+        sentiment['sentiment'] -= mean
 
     return sentiments

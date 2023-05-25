@@ -72,11 +72,23 @@ def extract_co_occurrences(characters, book_text, nlp, coref_json=None, find_mod
     #    predisposition that we already have a list of co-references (or that we
     #    extract them from the text)
     elif find_mode == 'coref':
-        if lang == 'en':
-            raise NotImplementedError('This method is not yet implemented')
-        elif lang == 'sl':
-            raise NotImplementedError('This method is not yet implemented')
-        else:
+        # If English, we have already passed in such text that it already contains co-references replaced with
+        # character names
+        if lang == 'sl':
+            raise Exception('Co-reference resolution not supported for Slovene')
+        elif lang != 'en':
             raise Exception('Language not supported')
+
+        # Continue in the same way as in the first case, but with the co-references replaced with character names
+        for c1, _ in characters.items():
+            for c2, _ in characters.items():
+                # Check if entry is already in the dictionary
+                if c1 != c2 and (c2, c1) not in co_occurrences:
+                    for sentence in sentences:
+                        if c1 in sentence and c2 in sentence:
+                            if (c1, c2) not in co_occurrences:
+                                co_occurrences[(c1, c2)] = 0
+
+                            co_occurrences[(c1, c2)] += 1
 
     return co_occurrences
