@@ -3,7 +3,7 @@ from coref.data import Document, Token, Mention
 import copy
 
 
-def to_input(classla_output):
+def to_input(classla_output, ner_candidates):
     # Transforms CLASSLA's output into a form that can be fed into coref model.
     sentences = [{"tokens": {}, "sentences": [], "mentions": {}, "clusters": []} for _ in range(len(classla_output.sentences))]
 
@@ -29,13 +29,14 @@ def to_input(classla_output):
             # FIXME: This is a possibly inefficient way of finding start_char of a word. Stanza has this functionality
             #  implemented, Classla unfortunately does not, so we resort to a hack
             new_start_char = str_document.find(input_word.text, start_char)
-            output_token.start_char = new_start_char
+            output_token.start_char = new_start_char # type: ignore
             if new_start_char != -1:
                 start_char = new_start_char
 
             if len(mention_tokens) > 0 and mention_tokens[0].msd[0] != output_token.msd[0]:
-                sentences[sentence_index]["mentions"][current_mention_id] = Mention(current_mention_id, mention_tokens)
-                sentences[sentence_index]["clusters"].append([current_mention_id])
+                if mention_tokens[0].msd[0] in ["P"] or mention_tokens[0].msd[0] == "N" and mention_tokens[0].lemma in ner_candidates.keys():
+                    sentences[sentence_index]["mentions"][current_mention_id] = Mention(current_mention_id, mention_tokens)
+                    sentences[sentence_index]["clusters"].append([current_mention_id])
                 mention_tokens = []
                 current_mention_id += 1
 
@@ -137,8 +138,8 @@ def get_mentions(ms):
         )
     return mentions
 
-def get_slocoref(classla_output):
-    sentences_data = to_input(classla_output)
+def get_slocoref(classla_output, ner_candidates):
+    sentences_data = to_input(classla_output, ner_candidates)
     all_tokens = {k: v for sentence in sentences_data for k, v in sentence["tokens"].items()}
     all_sentences = [s for sentence in sentences_data for s in sentence["sentences"]]
     all_mentions = {k: v for sentence in sentences_data for k, v in sentence["mentions"].items()}
@@ -146,33 +147,29 @@ def get_slocoref(classla_output):
     coref_input = Document(1, all_tokens, all_sentences, all_mentions, all_clusters)
     return coref_model.evaluate_single(coref_input), get_mentions(all_mentions)
 
-def coref_resolution(classla_output, threshold, return_singletons, window_size=None, window_stride=None):
-    sentences_data = to_input(classla_output)
+def coref_resolution(classla_output, threshold, ner_candidates, return_singletons, window_size=None, window_stride=None):
+    sentences_data = to_input(classla_output, ner_candidates)
     all_tokens = {k: v for sentence in sentences_data for k, v in sentence["tokens"].items()}
     all_sentences = [s for sentence in sentences_data for s in sentence["sentences"]]
     all_mentions = {k: v for sentence in sentences_data for k, v in sentence["mentions"].items()}
     all_clusters = [c for sentence in sentences_data for c in sentence["clusters"]]
 
-    print(all_sentences)
-    print(all_mentions)
-
     coreferences_map = {}
-    ret_mentions = []
+    ret_mentions = {}
     for mention in all_mentions.values():
         [sentence_id, token_id] = [int(idx) for idx in mention.tokens[0].token_id.split("-")]
 
         mention_raw_text = " ".join([t.raw_text for t in mention.tokens])
-        ret_mentions.append(
+        ret_mentions[mention.mention_id] = \
             {
                 "id": mention.mention_id,
                 "start_idx": mention.tokens[0].start_char,
                 "length": len(mention_raw_text),
                 "ner_type": classla_output.sentences[sentence_id].tokens[token_id].ner.replace("B-", "").replace("I-", ""),
                 "msd": mention.tokens[0].msd,
+                "lemmas": [t.lemma for t in mention.tokens],
                 "text": mention_raw_text
             }
-        )
-    print("----------")
     if window_size is None:
         coref_input = Document(1, all_tokens, all_sentences, all_mentions, all_clusters)
         coref_output = coref_model.evaluate_single(coref_input)
@@ -209,9 +206,10 @@ def coref_resolution(classla_output, threshold, return_singletons, window_size=N
 
             iter_input = Document(1, tokens, sentences, mentions, clusters)
             iter_output = coref_model.evaluate_single(iter_input)
+            print(iter_output)
             ret_data = get_response(iter_input, iter_output, classla_output, threshold, return_singletons)
             iter_ret_coreferences = ret_data["coreferences"]
-            print("inserting_coreferences")
+            print("Inserting coreferences")
             for coref in iter_ret_coreferences:
                 id1 = coref["id1"]
                 id2 = coref["id2"]

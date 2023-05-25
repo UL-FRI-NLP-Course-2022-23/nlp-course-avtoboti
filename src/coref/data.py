@@ -110,7 +110,23 @@ class Token:
         self.category = msd[0]
 
     def __str__(self):
-        return f"Token(\"{self.raw_text}\")"
+        # return f"Token(\"{self.raw_text}\")"
+        return \
+            f"""
+                token_id: {self.token_id}
+                raw_text: {self.raw_text}
+                lemma: {self.lemma}
+                msd: {self.msd}
+                sentence_index: {self.sentence_index}
+                position_in_sentence: {self.position_in_sentence}
+                position_in_document: {self.position_in_document}
+                gender: {self.gender}
+                number: {self.number}
+                category: {self.category}
+            """
+
+    def __repr__(self):
+        return self.__str__()
 
     def _extract_number(self, msd_string):
         number = None
@@ -143,7 +159,14 @@ class Mention:
         self.tokens = tokens
 
     def __str__(self):
-        return f"Mention(\"{' '.join([tok.raw_text for tok in self.tokens])}\")"
+        # return f"Mention(\"{' '.join([tok.raw_text for tok in self.tokens])}\")"
+        return \
+            f"""
+                mention_id: {self.mention_id}
+                tokens: {self.tokens}
+            """
+    def __repr__(self):
+        return self.__str__()
 
     def raw_text(self):
         return " ".join([t.raw_text for t in self.tokens])
