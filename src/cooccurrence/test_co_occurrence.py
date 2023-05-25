@@ -1,26 +1,38 @@
-from src.sentex.sentex_nltk import sentiment_analysis
 from co_occurrence_extraction import extract_co_occurrences
 from visualization import visualize_connections
-
-from nltk.sentiment import SentimentIntensityAnalyzer
 import classla
 
-text = "Janez je videl Petra. Peter je videl Tineta. Janez in Peter sta najboljša prijatelja."
-text_en = "Janez is happy. Peter is sad. Tine is angry. Janez and Peter are best friends. " \
-          "Janez and Peter love each other. Janez has an enemy Tine."
-characters = {"Janez": 4, "Peter": 3, "Tine": 2}
+text = "Janez je vesel. Tine je jezen. Janez je videl Petra. Janez in Peter sta najboljša prijatelja. " \
+       "Janez ima sovražnika Tineta."
 
-# Extract sentiment using NLTK
-sia = SentimentIntensityAnalyzer()
-sentiments = sentiment_analysis(characters, text, sia, lang='sl')
+# Obtain results from test_simple.py
+sentiments = {
+    'Janez': {
+        'frequency': 5,
+        'sentiment': 0.22203999999999996
+    },
+    'Peter': {
+        'frequency': 2,
+        'sentiment': 0.3602
+    },
+    'Tine': {
+        'frequency': 2,
+        'sentiment': -0.5264500000000001
+    }
+}
 
 # Extract co-occurrences using Classla
 nlp = classla.Pipeline('sl', dir='../../models/classla_resources', processors='tokenize,pos,lemma')
-co_occurrences = extract_co_occurrences(sentiments, text, nlp, finding_method='direct')
+co_occurrences = extract_co_occurrences(sentiments, text, nlp, find_mode='lemma')
 
 # Print results
-print(sentiments)
 print(co_occurrences)
 
 # Visualize characters and their connections
 visualize_connections(sentiments, co_occurrences)
+
+# Results:
+{
+    ('Janez', 'Peter'): 2,
+    ('Janez', 'Tine'): 1
+}

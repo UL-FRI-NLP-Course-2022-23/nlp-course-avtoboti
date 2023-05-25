@@ -51,6 +51,17 @@ def visualize_connections(characters, connections):
         # Draw node labels
         nx.draw_networkx_labels(G, pos, font_color='black')
 
+        # Adjust plot limits to add padding
+        padding = 0.5  # Adjust the padding value as needed
+        x_values = [pos[node][0] for node in G.nodes]
+        y_values = [pos[node][1] for node in G.nodes]
+        min_x = min(x_values) - padding
+        max_x = max(x_values) + padding
+        min_y = min(y_values) - padding
+        max_y = max(y_values) + padding
+        plt.xlim(min_x, max_x)
+        plt.ylim(min_y, max_y)
+
         # Show the plot
         plt.axis('off')
         plt.show()
