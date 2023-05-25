@@ -20,7 +20,7 @@ def to_input(classla_output, ner_candidates):
             input_word = input_token.words[0]
             output_token = Token(str(sentence_index) + "-" + str(token_index_in_sentence),
                                  input_word.text,
-                                 input_word.lemma,
+                                 input_word.lemma.lower(),
                                  input_word.xpos,
                                  sentence_index,
                                  token_index_in_sentence,
@@ -34,7 +34,7 @@ def to_input(classla_output, ner_candidates):
                 start_char = new_start_char
 
             if len(mention_tokens) > 0 and mention_tokens[0].msd[0] != output_token.msd[0]:
-                if mention_tokens[0].msd[0] in ["P"] or mention_tokens[0].msd[0] == "N" and mention_tokens[0].lemma in ner_candidates.keys():
+                if mention_tokens[0].msd[0] in ["V", "P"] or mention_tokens[0].msd[0] == "N" and " ".join(t.lemma for t in mention_tokens) in ner_candidates.keys():
                     sentences[sentence_index]["mentions"][current_mention_id] = Mention(current_mention_id, mention_tokens)
                     sentences[sentence_index]["clusters"].append([current_mention_id])
                 mention_tokens = []

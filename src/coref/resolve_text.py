@@ -56,6 +56,6 @@ class Resolver:
             else:
                 sent_start += window_stride
                 sent_end = min(sent_end + window_stride, len(sentences_data))
-        # TODO write coreferences and count
+        
         mentions = {k: copy.deepcopy(v) for sentence in sentences_data for k, v in sentence["mentions"].items()}
-        return list(map(lambda id: mentions[id], coreferenced_mentions)), mention_coreferences
+        return mentions.values(), mention_coreferences
