@@ -2,483 +2,483 @@
   {
     "Dunaj\u010dan": {
       "frequency": 3,
-      "sentiment": -0.6023239890734354
+      "sentiment": -0.5221
     }
   },
   {
     "Lenart": {
       "frequency": 9,
-      "sentiment": -0.030795069268116586
+      "sentiment": 0.2338538461538461
     }
   },
   {
     "Maslin": {
       "frequency": 9,
-      "sentiment": -0.05874730510607598
+      "sentiment": -0.22877857142857141
     },
     "dostojanstvenik": {
       "frequency": 4,
-      "sentiment": -0.12950499131092952
+      "sentiment": 0.0660988095238095
     },
     "Maslinov": {
       "frequency": 3,
-      "sentiment": 0.18825229641700547
+      "sentiment": 0.16267976190476194
     }
   },
   {
     "Anka": {
       "frequency": 93,
-      "sentiment": 0.13305084597599764
+      "sentiment": 0.20249072580645164
     },
     "Rieglov": {
       "frequency": 10,
-      "sentiment": -0.18393987791752942
+      "sentiment": -0.14452244623655916
     },
     "Gosp\u00e1": {
       "frequency": 7,
-      "sentiment": 0.050889031941531826
+      "sentiment": -0.05796827956989245
     }
   },
   {
     "\u0160viligoj": {
       "frequency": 32,
-      "sentiment": 0.06359912157804382
+      "sentiment": 0.004704922385620924
     },
     "Frfila": {
       "frequency": 19,
-      "sentiment": -0.02999905673589168
+      "sentiment": -0.027848018790849666
     },
     "\u0160tefan": {
       "frequency": 10,
-      "sentiment": 0.0889392961585115
+      "sentiment": -0.13510063316993468
     },
     "Frfilov": {
       "frequency": 7,
-      "sentiment": 0.08141883646268884
+      "sentiment": 0.24398825571895422
     },
     "Frfil": {
       "frequency": 5,
-      "sentiment": -0.011603823274806194
+      "sentiment": -0.027848018790849666
     },
     "Boga": {
       "frequency": 3,
-      "sentiment": 0.0031009053338160765
+      "sentiment": 0.24452992238562088
     },
     "Frfile": {
       "frequency": 3,
-      "sentiment": -0.013445814538083585
+      "sentiment": -0.027848018790849666
     },
     "Str\u017eina": {
       "frequency": 3,
-      "sentiment": -0.1820094649842788
+      "sentiment": -0.27457841094771246
     }
   },
   {
     "Malhus": {
       "frequency": 45,
-      "sentiment": -0.06176248882985422
+      "sentiment": 0.06408721613276723
     },
     "Milan": {
       "frequency": 40,
-      "sentiment": -0.08418065431011854
+      "sentiment": -0.025969026217293967
     },
     "Milena": {
       "frequency": 37,
-      "sentiment": 0.003594531880308144
+      "sentiment": -0.12776155822298388
     },
     "kralj": {
       "frequency": 18,
-      "sentiment": 0.024476851919576735
+      "sentiment": 0.06286081183938615
     },
     "Timaeus": {
       "frequency": 9,
-      "sentiment": 0.08050320281106496
+      "sentiment": 0.0003435468821212234
     },
     "Sulfurij": {
       "frequency": 5,
-      "sentiment": -0.17252684868097137
+      "sentiment": 0.1755403722789466
     },
     "Kolokotronij": {
       "frequency": 5,
-      "sentiment": 0.1435617411320567
+      "sentiment": 0.24296465799323236
     },
     "Neron": {
       "frequency": 5,
-      "sentiment": -0.016196359526598474
+      "sentiment": -0.16164534200676767
     },
     "David": {
       "frequency": 4,
-      "sentiment": 0.06867155002406833
+      "sentiment": -0.11637034200676764
     },
     "Minka": {
       "frequency": 3,
-      "sentiment": 0.013122525730248275
+      "sentiment": -0.13614534200676764
     },
     "bog": {
       "frequency": 3,
-      "sentiment": -0.007156941553011982
+      "sentiment": 0.038926979421803884
     },
     "Kolokotroni": {
       "frequency": 3,
-      "sentiment": 0.1435617411320567
+      "sentiment": 0.24296465799323236
     },
     "Kralj": {
       "frequency": 3,
-      "sentiment": -0.14970913722626408
+      "sentiment": -0.10842261473404037
     },
     "Eskulap": {
       "frequency": 3,
-      "sentiment": -0.013699148427927514
+      "sentiment": -0.141678675340101
     },
     "Nat\u00f3": {
       "frequency": 3,
-      "sentiment": 0.02773943392536638
+      "sentiment": -0.009695342006767665
     }
   },
   {
     "Marko": {
       "frequency": 65,
-      "sentiment": -0.03529222776477128
+      "sentiment": 0.05089931843862347
     },
     "Kristus": {
       "frequency": 6,
-      "sentiment": -0.2411983064472155
+      "sentiment": -0.008930625064201364
     },
     "Mimica": {
       "frequency": 6,
-      "sentiment": 0.23082020762965322
+      "sentiment": -0.13331729173086804
     },
     "Francka": {
       "frequency": 4,
-      "sentiment": 0.022148360643836268
+      "sentiment": 0.014352708269131959
     },
     "bog": {
       "frequency": 3,
-      "sentiment": 0.023521965938497355
+      "sentiment": 0.07699589008731378
     }
   },
   {
     "Pavla": {
       "frequency": 26,
-      "sentiment": -0.11053402938832266
+      "sentiment": -0.10787347340930675
     },
     "Maren": {
       "frequency": 19,
-      "sentiment": 0.023333005145048866
+      "sentiment": -0.2601109734093068
     },
     "Bergarica": {
       "frequency": 10,
-      "sentiment": -0.085898712491139
+      "sentiment": 0.0034890265906932505
     },
     "Dorer": {
       "frequency": 7,
-      "sentiment": -0.07769901103292329
+      "sentiment": 0.1494290265906932
     },
     "Fricovka": {
       "frequency": 7,
-      "sentiment": -0.079849729155644
+      "sentiment": 0.10542791547958216
     },
     "Pavli": {
       "frequency": 4,
-      "sentiment": -0.00679739106398744
+      "sentiment": -0.10787347340930675
     },
     "Fricov": {
       "frequency": 4,
-      "sentiment": -0.061640897033831625
+      "sentiment": 0.033800565052231696
     },
     "Citrarica": {
       "frequency": 3,
-      "sentiment": -0.2645954630922717
+      "sentiment": -0.5058276400759735
     },
     "Pavlica": {
       "frequency": 3,
-      "sentiment": 0.6636822281130709
+      "sentiment": 0.6895390265906933
     }
   },
   {
     "Modesta": {
       "frequency": 1,
-      "sentiment": -0.5960646271705627
+      "sentiment": 0.0
     }
   },
   {
     "Nata\u0161a": {
       "frequency": 37,
-      "sentiment": 0.09397817561688518
+      "sentiment": -0.06688712202085402
     },
     "Mario": {
       "frequency": 34,
-      "sentiment": -0.13940370683862607
+      "sentiment": 0.049992123262164845
     },
     "Karlo": {
       "frequency": 18,
-      "sentiment": -0.22410698719480565
+      "sentiment": -0.05079962202085403
     },
     "Marija": {
       "frequency": 9,
-      "sentiment": 0.15141758977097913
+      "sentiment": 0.22000235166335652
     },
     "Torsen": {
       "frequency": 8,
-      "sentiment": 0.0030874210704472382
+      "sentiment": -0.09348712202085403
     },
     "Fabio": {
       "frequency": 6,
-      "sentiment": 0.043132932047953876
+      "sentiment": 0.06792954464581263
     },
     "Marijev": {
       "frequency": 5,
-      "sentiment": -0.032472669024357526
+      "sentiment": 0.018772877979145956
     },
     "Marij": {
       "frequency": 4,
-      "sentiment": 0.09040661205338729
+      "sentiment": 0.049992123262164845
     },
     "Italijan": {
       "frequency": 3,
-      "sentiment": -0.08866154048749739
+      "sentiment": 0.09854621131247931
     },
     "Andrejev": {
       "frequency": 3,
-      "sentiment": -0.08769387894778383
+      "sentiment": -0.2373204553541874
     },
     "Karlov": {
       "frequency": 3,
-      "sentiment": 0.0629653927011681
+      "sentiment": -0.08295378868752068
     },
     "Karel": {
       "frequency": 3,
-      "sentiment": 0.12735065923224953
+      "sentiment": 0.026212877979145968
     }
   },
   {
     "Jo\u017ee": {
       "frequency": 21,
-      "sentiment": -0.10453584751279599
+      "sentiment": -0.16410221968360855
     },
     "Lovre": {
       "frequency": 16,
-      "sentiment": 0.024023376553287096
+      "sentiment": -0.011923768505157396
     },
     "Mostnarjev": {
       "frequency": 6,
-      "sentiment": -0.005949690947632175
+      "sentiment": 0.04963284525145638
     },
     "Lovretov": {
       "frequency": 5,
-      "sentiment": 0.08119505217133516
+      "sentiment": -0.002138583319972187
     },
     "Katra": {
       "frequency": 5,
-      "sentiment": 0.14802599550990814
+      "sentiment": 0.0008489166800277892
     },
     "Frane": {
       "frequency": 5,
-      "sentiment": 0.029284389520273152
+      "sentiment": 0.15964141668002782
     },
     "Jo\u0161ko": {
       "frequency": 4,
-      "sentiment": -0.13541905370041035
+      "sentiment": 0.1306185595371706
     },
     "Lovreto": {
       "frequency": 3,
-      "sentiment": 0.10918498730121606
+      "sentiment": -0.09333858331997219
     },
     "Medved": {
       "frequency": 3,
-      "sentiment": -0.14580920889518106
+      "sentiment": -0.06923858331997221
     }
   },
   {
     "bog": {
       "frequency": 2,
-      "sentiment": 0.035195307619869706
+      "sentiment": 0.27153
     }
   },
   {
     "Tev\u017e": {
       "frequency": 14,
-      "sentiment": -0.16748799724668703
+      "sentiment": -0.16193124999999997
     },
     "pravica": {
       "frequency": 12,
-      "sentiment": 0.09106703040957012
+      "sentiment": 0.40354375
     },
     "Pavla": {
       "frequency": 10,
-      "sentiment": -0.014646063572453225
+      "sentiment": -0.10035624999999998
     },
     "Pavel": {
       "frequency": 3,
-      "sentiment": 0.09106703040957012
+      "sentiment": -0.14125625
     }
   },
   {
     "Jereb": {
       "frequency": 25,
-      "sentiment": -0.1552075541112572
+      "sentiment": -0.06155416666666665
     }
   },
   {
     "Mile": {
       "frequency": 31,
-      "sentiment": -0.029017803606138592
+      "sentiment": 0.036114201238701245
     },
     "Leon": {
       "frequency": 25,
-      "sentiment": -0.08485783349270799
+      "sentiment": -0.13086947859497858
     },
     "Murn": {
       "frequency": 17,
-      "sentiment": -0.005955368958981806
+      "sentiment": 0.011802444481944487
     },
     "Turk": {
       "frequency": 12,
-      "sentiment": -0.0819040239695215
+      "sentiment": -0.07808801006351007
     },
     "Murnovka": {
       "frequency": 11,
-      "sentiment": 0.0015290993359184449
+      "sentiment": -0.01977891915441917
     },
     "Murnov": {
       "frequency": 11,
-      "sentiment": 0.025008996060481195
+      "sentiment": -0.03138422218472219
     },
     "Lija": {
       "frequency": 6,
-      "sentiment": -0.037515880962470646
+      "sentiment": 0.07883522225972225
     },
     "Lojze": {
       "frequency": 4,
-      "sentiment": 0.32835076544097613
+      "sentiment": 0.28848244448194443
     },
     "Wielicki": {
       "frequency": 3,
-      "sentiment": -0.16389081376674863
+      "sentiment": -0.07755684123234123
     },
     "Wielicka": {
       "frequency": 3,
-      "sentiment": 0.04825286391919336
+      "sentiment": -0.07755684123234123
     }
   },
   {
     "Kosirnik": {
       "frequency": 37,
-      "sentiment": -0.1586015738014664
+      "sentiment": 0.13935
     }
   },
   {
     "Fela": {
       "frequency": 19,
-      "sentiment": 0.05346469066400058
+      "sentiment": -0.01955947244654847
     },
     "Kolubari\u010d": {
       "frequency": 15,
-      "sentiment": -0.27002258639292326
+      "sentiment": 0.017108422290293634
     },
     "Mark": {
       "frequency": 12,
-      "sentiment": -0.007991937385383743
+      "sentiment": 0.017135459327330668
     },
     "Marko": {
       "frequency": 9,
-      "sentiment": 0.10596559026010043
+      "sentiment": 0.017135459327330668
     },
     "Suzana": {
       "frequency": 6,
-      "sentiment": -0.037832311060964116
+      "sentiment": -0.09803491104303966
     },
     "Markov": {
       "frequency": 5,
-      "sentiment": 0.135728906468469
+      "sentiment": -0.03694443485256349
     },
     "Fele": {
       "frequency": 4,
-      "sentiment": 0.04616891440739538
+      "sentiment": -0.01955947244654847
     },
     "Felo": {
       "frequency": 3,
-      "sentiment": 0.0863200774607511
+      "sentiment": -0.01955947244654847
     },
     "stra\u017enik": {
       "frequency": 3,
-      "sentiment": -0.11180134442144539
+      "sentiment": 0.14227842229029364
     }
   },
   {
     "bog": {
       "frequency": 2,
-      "sentiment": -0.16076917530825505
+      "sentiment": 0.028338461538461535
     },
     "Robespierre": {
       "frequency": 2,
-      "sentiment": 0.16076917530825505
+      "sentiment": -0.02833846153846155
     }
   },
   {
     "Aimi": {
       "frequency": 7,
-      "sentiment": 0.10083186604520854
+      "sentiment": 0.08134117647058824
     }
   },
   {
     "tolmun": {
       "frequency": 1,
-      "sentiment": -0.17295873153489083
+      "sentiment": -0.18614375
     },
     "Tanar": {
       "frequency": 1,
-      "sentiment": 0.46761375677306205
+      "sentiment": 0.17505625000000002
     },
     "Mondov": {
       "frequency": 1,
-      "sentiment": 0.678345859167166
+      "sentiment": -0.18614375
     },
     "Alma": {
       "frequency": 1,
-      "sentiment": -0.2503008245257661
+      "sentiment": 0.22985624999999998
     },
     "Mario": {
       "frequency": 1,
-      "sentiment": -0.17511987301986665
+      "sentiment": -0.18614375
     },
     "poro\u010dnik": {
       "frequency": 1,
-      "sentiment": -0.18503517366480082
+      "sentiment": 0.014806249999999993
     },
     "Solari": {
       "frequency": 1,
-      "sentiment": 0.6456453801365569
+      "sentiment": 0.6208562500000001
     },
     "Mornar\u010dek": {
       "frequency": 1,
-      "sentiment": -1.0081903933314607
+      "sentiment": -0.48214375
     }
   },
   {
     "Majda": {
       "frequency": 39,
-      "sentiment": 0.06844850620559836
+      "sentiment": 0.0025478749028749192
     },
     "Mimica": {
       "frequency": 5,
-      "sentiment": -0.15609079704386625
+      "sentiment": 0.11693018259518259
     },
     "Egon": {
       "frequency": 4,
-      "sentiment": 0.04459308746504157
+      "sentiment": -0.049069817404817404
     },
     "Stevo": {
       "frequency": 4,
-      "sentiment": 0.17269950169904116
+      "sentiment": 0.09519018259518258
     },
     "Majdin": {
       "frequency": 3,
-      "sentiment": -0.0565042664722321
+      "sentiment": -0.08435527195027193
     },
     "Du\u0161an": {
       "frequency": 3,
-      "sentiment": -0.07314603185358277
+      "sentiment": -0.08124315073815072
     }
   }
 ]

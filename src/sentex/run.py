@@ -206,7 +206,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         raise Exception('Usage: python run.py <stories> <mode>')
 
-    stories_sentiments = extract_all_sentiments(stories_arg, mode_arg, infrequent_characters=3, find_mode='coref')
+    stories_sentiments = extract_all_sentiments(stories_arg, mode_arg, infrequent_characters=3, find_mode='direct')
 
     for i in range(len(stories_sentiments)):
         if stories_sentiments[i] is None:

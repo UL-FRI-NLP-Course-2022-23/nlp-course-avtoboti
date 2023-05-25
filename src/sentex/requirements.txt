@@ -1,6 +1,6 @@
 afinn
 classla
-googletrans
+googletrans==3.1.0a0
 nltk
 numpy
 stanza
