@@ -44,24 +44,6 @@
         "we\u00f5ll": 1
     },
     {
-        "Edgar": 170,
-        "Allan": 170,
-        "Poe": 166,
-        "'s": 25,
-        "poe": 4,
-        "this": 2,
-        "Madmen": 1,
-        "evil": 1,
-        "Eye": 1,
-        "death": 1,
-        "I": 1
-    },
-    {
-        "Frank": 1,
-        "R.": 1,
-        "Stockton": 1
-    },
-    {
         "Jig": 6,
         "Ernest": 1,
         "Hemingway": 1,
@@ -84,24 +66,9 @@
         "Swift": 1
     },
     {
-        "Della": 144,
-        "Jim": 99,
-        "James": 12,
-        "Dillingham": 11,
-        "Young": 11,
-        "Combs": 8,
-        "'s": 4,
-        "the": 3,
-        "\u00d3": 3,
-        "of": 3,
-        "gift": 1,
-        "Magi": 1,
-        "D.": 1,
-        "I\u00d5m": 1,
-        ",": 1,
-        "Christ": 1,
-        "-": 1,
-        "child": 1
+        "Frank": 1,
+        "R.": 1,
+        "Stockton": 1
     },
     {
         "Rain": 749,
@@ -121,5 +88,38 @@
         "Dusk": 1,
         "Marcus": 1,
         "Aurelius": 1
+    },
+    {
+        "Edgar": 170,
+        "Allan": 170,
+        "Poe": 166,
+        "'s": 25,
+        "poe": 4,
+        "this": 2,
+        "Madmen": 1,
+        "evil": 1,
+        "Eye": 1,
+        "death": 1,
+        "I": 1
+    },
+    {
+        "Della": 144,
+        "Jim": 99,
+        "James": 12,
+        "Dillingham": 11,
+        "Young": 11,
+        "Combs": 8,
+        "'s": 4,
+        "the": 3,
+        "\u00d3": 3,
+        "of": 3,
+        "gift": 1,
+        "Magi": 1,
+        "D.": 1,
+        "I\u00d5m": 1,
+        ",": 1,
+        "Christ": 1,
+        "-": 1,
+        "child": 1
     }
 ]

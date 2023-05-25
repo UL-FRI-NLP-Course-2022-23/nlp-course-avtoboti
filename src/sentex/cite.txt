@@ -1,0 +1,7 @@
+@inproceedings{tymann2020native,
+  title={Native Sentiment Analysis Tools vs. Translation Services-Comparing GerVADER and VADER.},
+  author={Tymann, Karsten and Steinkamp, Louis and Zhurakovskaya, Oxana and Gips, Carsten},
+  booktitle={LWDA},
+  pages={100--104},
+  year={2020}
+}

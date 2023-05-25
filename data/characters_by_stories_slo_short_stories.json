@@ -1,371 +1,158 @@
 [
-    {
-        "h\u010di": 8,
-        "gra\u0161\u010dak": 5,
-        "velikan": 8,
-        "brat": 10,
-        "de\u010dek": 3,
-        "tesar": 4,
-        "grad": 7,
-        "\u017eaba": 3,
-        "kralj": 5,
-        "\u017eena": 2,
-        "mladeni\u010d": 3
-    },
-    {
-        "petelin": 16,
-        "ma\u010dka": 7,
-        "raca": 3,
-        "pes": 9,
-        "hi\u0161a": 12,
-        "osel": 3,
-        "razbojnik": 7
-    },
-    {
-        "o\u010de": 7,
-        "dedec": 4,
-        "lina": 7,
-        "h\u010di": 4,
-        "pasjeglavec": 10,
-        "deklica": 9,
-        "glava": 6,
-        "ma\u010dka": 5
-    },
-    {
-        "sirotica marica": 7,
-        "gora": 9,
-        "mo\u017e": 2,
-        "deklica": 3,
-        "h\u010di": 11,
-        "pastorka": 11,
-        "mati": 2,
-        "volna": 8,
-        "ma\u010deha": 8,
-        "junak": 7
-    },
-    {
-        "ma\u010deha": 5,
-        "de\u010dek": 8,
-        "svet": 16,
-        "dan": 7,
-        "o\u010de": 4,
-        "medved": 1,
-        "mo\u017e": 5,
-        "kraljica": 4,
-        "kralj": 10,
-        "pu\u0161\u010davnik": 6,
-        "jug": 3
-    },
-    {
-        "\u017eena": 7,
-        "mo\u017e": 6
-    },
-    {
-        "servac": 4,
-        "dolina": 27,
-        "ka\u010da": 28,
-        "romar": 17,
-        "\u0161iba": 16,
-        "bonifac": 27,
-        "trijac": 1,
-        "pankr\u00e1c": 1,
-        "pankrac": 11,
-        "o\u010de": 3,
-        "\u010dlovek": 15,
-        "bogo": 1,
-        "brat": 4,
-        "kajkrat": 1,
-        "bonifa\u010dek": 2,
-        "bonifaca": 1
-    },
-    {
-        "kmet": 10,
-        "denar": 10,
-        "mernik": 12,
-        "\u0161kratelj": 6
-    },
-    {
-        "sin": 11,
-        "zlatar": 4,
-        "kralj": 5,
-        "ljubezen": 7,
-        "o\u010de": 11,
-        "brat": 3
-    },
-    {
-        "mojca pokrajculja": 26,
-        "piskr\u010dek": 9,
-        "slana": 5,
-        "kuhinja": 6,
-        "lisica": 11,
-        "vrata": 5,
-        "burja": 4,
-        "volk": 4,
-        "medved": 2,
-        "zaj\u010dek": 2,
-        "zajec": 2
-    },
-    {
-        "brat": 15,
-        "\u017eena": 7,
-        "gra\u0161\u010dak": 22,
-        "hlapec": 34,
-        "pes": 7,
-        "hajdi": 1
-    },
-    {
-        "volk": 15,
-        "zaj\u010dek": 16,
-        "lisica": 12
-    },
-    {
-        "h\u010di": 8,
-        "brat": 40,
-        "starka": 13,
-        "kralj": 5,
-        "mladeni\u010d": 6,
-        "mo\u017e": 4,
-        "\u010darovnik": 4,
-        "fant": 5,
-        "sin": 5,
-        "velikan": 8,
-        "blisk": 1
-    },
-    {
-        "markec": 114,
-        "pastir": 23,
-        "h\u010di": 31,
-        "grof": 22,
-        "jabolko": 47,
-        "kova\u010d": 18,
-        "kova\u0161tvo": 1,
-        "markca": 2,
-        "ko\u010dija\u017e": 5,
-        "\u017eena": 8,
-        "mladeni\u010d": 16,
-        "sestra": 5
-    },
-    {
-        "sin": 9,
-        "lisica": 11,
-        "h\u010di": 10,
-        "mladeni\u010d": 16,
-        "brat": 23,
-        "kralj": 7,
-        "o\u010de": 8,
-        "\u017eena": 5,
-        "mo\u017e": 14,
-        "kraljevi\u010d": 2,
-        "sestra": 8,
-        "kamenje": 9,
-        "volk": 3,
-        "raca": 5
-    },
-    {
-        "mlinar": 14,
-        "zemlja": 16,
-        "kol": 14,
-        "kova\u010d": 23,
-        "smrekar": 11,
-        "butec": 3,
-        "grad": 19,
-        "\u0161krat": 6,
-        "starec": 2,
-        "deklica": 13
-    },
-    {
-        "mati": 6,
-        "mladeni\u010d": 29,
-        "velikan": 16
-    },
-    {
-        "o\u010de": 12,
-        "mati": 11,
-        "mo\u017e": 22,
-        "de\u010dek": 29
-    },
-    {
-        "sin": 4,
-        "h\u010di": 9,
-        "vrv": 8,
-        "svet": 7,
-        "zemlja": 10,
-        "deklica": 3,
-        "jama": 11,
-        "zrno": 10,
-        "\u017eena": 13,
-        "o\u010de": 4,
-        "grof": 2,
-        "dan": 8,
-        "brat": 11,
-        "sestra": 3,
-        "mladeni\u010d": 11,
-        "golob\u010dek": 10,
-        "zlatar": 2
-    },
-    {
-        "\u017eena": 17,
-        "h\u010di": 7,
-        "mo\u017e": 13,
-        "grad": 31,
-        "siromak": 9,
-        "mladeni\u010d": 3,
-        "mati": 3,
-        "gra\u0161\u010dak": 4
-    },
-    {
-        "deklica": 14,
-        "gospa": 15,
-        "\u0161karjica": 25,
-        "bogdanka": 7
-    },
-    {
-        "de\u017eela": 12,
-        "gora": 16,
-        "kova\u010d": 5,
-        "mati": 2,
-        "pastir\u010dek": 17,
-        "deklica": 13,
-        "obleka": 7,
-        "fanti\u010d": 5,
-        "h\u010di": 2,
-        "fant": 6,
-        "o\u010de": 2,
-        "mo\u017e": 2,
-        "starec": 5,
-        "brat": 7,
-        "krivec": 2,
-        "\u0161korenj": 6,
-        "\u010darovnik": 13,
-        "\u010darovnica": 3
-    },
-    {
-        "deklica": 15,
-        "mo\u017e": 11,
-        "ma\u010deha": 3,
-        "mati": 2,
-        "ve\u010derja": 8,
-        "ma\u010dek": 5
-    },
-    {
-        "frrr": 2,
-        "\u010devljar\u010dek": 22,
-        "samson": 7,
-        "velikan": 2,
-        "mo\u017e": 2,
-        "matev\u017e": 5,
-        "ma": 1,
-        "sin": 8
-    },
-    {
-        "brat": 8,
-        "o\u010de": 7,
-        "sin": 3,
-        "podpe\u010dnik": 4,
-        "ve\u010der": 8,
-        "oreh": 6,
-        "kralj": 4,
-        "most": 9,
-        "konj": 7
-    },
-    {
-        "sin": 12,
-        "o\u010de": 9,
-        "kralj": 15,
-        "mladeni\u010d": 10,
-        "uganka": 8,
-        "sonce": 7,
-        "de\u010dek": 3,
-        "ro\u017ea": 8
-    },
-    {
-        "kralj": 4,
-        "h\u010di": 3,
-        "sin": 7,
-        "golob": 6,
-        "glava": 8,
-        "o\u010de": 2,
-        "uganka": 5,
-        "mo\u017e": 1,
-        "mladeni\u010d": 8,
-        "mati": 4,
-        "pot": 7,
-        "pes": 5,
-        "grivec": 2,
-        "razbojnik": 2
-    },
-    {
-        "ko\u0161": 14,
-        "\u017eena": 9,
-        "o\u010de": 6,
-        "h\u010di": 5,
-        "vrag": 21,
-        "sestra": 9
-    },
-    {
-        "sin": 12,
-        "jabolko": 20,
-        "kralj": 10,
-        "bera\u010d": 14,
-        "vrt": 10,
-        "o\u010de": 7,
-        "mo\u017e": 2,
-        "kraljevi\u010d": 14,
-        "gredica": 2,
-        "brat": 4
-    },
-    {
-        "kralj": 8,
-        "sin": 14,
-        "o\u010de": 10,
-        "pti\u010d": 22,
-        "deklica": 21,
-        "konj": 30,
-        "mladeni\u010d": 15,
-        "brat": 11,
-        "medved": 29,
-        "kraljevi\u010d": 4
-    },
-    {
-        "zlatolaska": 10,
-        "kuhar": 24,
-        "voda": 8,
-        "grof": 10,
-        "\u017eena": 4,
-        "riba": 7,
-        "vrana": 1,
-        "o\u010de": 2,
-        "h\u010di": 1
-    },
-    {
-        "grad": 34,
-        "deklica": 15,
-        "mati": 9,
-        "kralj": 7,
-        "h\u010di": 2,
-        "sonce": 4,
-        "starka": 5,
-        "nesre\u010dnik": 5,
-        "lune": 3,
-        "veter": 11,
-        "zlatolaska": 4
-    },
-    {
-        "pastir": 5,
-        "grad": 17,
-        "ka\u010da": 12,
-        "de\u010dek": 21,
-        "mati": 19,
-        "h\u010di": 10,
-        "kralj": 10,
-        "\u017eena": 7,
-        "pes": 16,
-        "ma\u010dka": 23,
-        "prstan": 26,
-        "sin": 4,
-        "mladeni\u010d": 19,
-        "hudobne\u017e": 1,
-        "o\u010de": 3,
-        "princ": 3
-    }
+  {
+    "petelin": 1
+  },
+  {},
+  {
+    "Marica": 7,
+    "sirotica": 1
+  },
+  {
+    "kralj": 2,
+    "Jug": 2,
+    "puščavnik": 1
+  },
+  {},
+  {
+    "Bonifac": 24,
+    "Pankrac": 13,
+    "Servac": 2,
+    "Bonifaček": 2,
+    "Trijaci": 1,
+    "Servec": 1,
+    "Bonifec": 1,
+    "Bogo": 1,
+    "Kajkrat": 1,
+    "samogolten": 1,
+    "zahvaljen": 1
+  },
+  {
+    "Škratelj": 1,
+    "Mernik": 1
+  },
+  {
+    "Zlatar": 1
+  },
+  {
+    "Mojca": 23,
+    "Pokrajculja": 22,
+    "lisica": 3,
+    "Volk": 1
+  },
+  {
+    "brat": 3,
+    "Hajdi": 1
+  },
+  {
+    "lisica": 1
+  },
+  {
+    "kraljičen": 2,
+    "brat": 1,
+    "blisk": 1,
+    "kralj": 1
+  },
+  {
+    "Markec": 106,
+    "Markčev": 12,
+    "Markc": 9,
+    "Kovač": 9,
+    "grofov": 3,
+    "Markca": 2,
+    "kovaštvo": 1,
+    "kočijaž": 1
+  },
+  {
+    "kralj": 1,
+    "kraljičen": 1,
+    "Kraljevič": 1,
+    "lisica": 1
+  },
+  {
+    "Graščak": 1,
+    "kralj": 1,
+    "vtem": 1
+  },
+  {
+    "Kovač": 7,
+    "Mlinar": 3,
+    "Butec": 2
+  },
+  {},
+  {},
+  {
+    "golobček": 2,
+    "Zlatar": 1
+  },
+  {},
+  {
+    "Bogdanka": 8,
+    "Bogdank": 1
+  },
+  {
+    "pastirček": 7,
+    "Kovač": 3,
+    "Krivec": 2,
+    "Pastirček": 1
+  },
+  {
+    "Maček": 2,
+    "kužej": 1
+  },
+  {
+    "Samson": 6,
+    "Čevljarček": 6,
+    "Matevž": 6,
+    "Samsonov": 2,
+    "mož": 1,
+    "Samsona": 1,
+    "frrr": 1,
+    "jejhata": 1,
+    "Ma": 1
+  },
+  {
+    "Podpečnik": 3
+  },
+  {
+    "Metuzalemov": 1,
+    "kralj": 1
+  },
+  {
+    "Grivec": 2,
+    "kraljičen": 1,
+    "kralj": 1
+  },
+  {},
+  {
+    "Kraljevič": 3,
+    "kralj": 2,
+    "gredica": 1,
+    "berač": 1
+  },
+  {
+    "kralj": 3,
+    "Medved": 2,
+    "Kraljevič": 1
+  },
+  {
+    "kuhar": 10,
+    "Zlatolaska": 6,
+    "Vrana": 1,
+    "Kuhar": 1,
+    "Zlatolaskin": 1
+  },
+  {
+    "Luna": 5,
+    "veter": 4,
+    "Zlatolaska": 3,
+    "lunin": 2,
+    "Sonce": 2,
+    "Marija": 1,
+    "Terezija": 1,
+    "nesrečnik": 1,
+    "sončev": 1
+  },
+  {
+    "hudobnež": 1
+  }
 ]

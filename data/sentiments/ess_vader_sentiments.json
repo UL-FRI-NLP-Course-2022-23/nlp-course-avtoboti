@@ -1,0 +1,140 @@
+[
+  {
+    "Ebenezer": {
+      "frequency": 254,
+      "sentiment": 0.24551098477410324
+    },
+    "Dorset": {
+      "frequency": 254,
+      "sentiment": 0.24551098477410324
+    },
+    "Bill": {
+      "frequency": 164,
+      "sentiment": 0.06762453522708681
+    },
+    "Driscoll": {
+      "frequency": 124,
+      "sentiment": 0.07158122286934152
+    },
+    "Sam": {
+      "frequency": 26,
+      "sentiment": -0.03169704552892691
+    },
+    "Hank": {
+      "frequency": 9,
+      "sentiment": -0.1356212121955936
+    },
+    "HENRY": {
+      "frequency": 4,
+      "sentiment": -0.1379337121955936
+    },
+    "Old": {
+      "frequency": 4,
+      "sentiment": -0.1670587121955936
+    },
+    "Trapper": {
+      "frequency": 3,
+      "sentiment": -0.15791704552892694
+    }
+  },
+  {
+    "Jig": {
+      "frequency": 6,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Leiningen": {
+      "frequency": 303,
+      "sentiment": 0.23273552631578953
+    },
+    "Macbeth": {
+      "frequency": 3,
+      "sentiment": -0.23273552631578953
+    }
+  },
+  {
+    "Frank": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "R.": {
+      "frequency": 1,
+      "sentiment": 0.0
+    },
+    "Stockton": {
+      "frequency": 1,
+      "sentiment": 0.0
+    }
+  },
+  {
+    "Rain": {
+      "frequency": 749,
+      "sentiment": -0.08165775925925928
+    },
+    "Zaroff": {
+      "frequency": 55,
+      "sentiment": -0.0008340037037037062
+    },
+    "Whitney": {
+      "frequency": 19,
+      "sentiment": -0.005089559259259288
+    },
+    "Cossack": {
+      "frequency": 12,
+      "sentiment": -0.19753955925925926
+    },
+    "Ivan": {
+      "frequency": 8,
+      "sentiment": 0.10961044074074074
+    },
+    "Lazarus": {
+      "frequency": 3,
+      "sentiment": 0.17551044074074074
+    }
+  },
+  {
+    "Edgar": {
+      "frequency": 170,
+      "sentiment": -0.018832568807339453
+    },
+    "Allan": {
+      "frequency": 170,
+      "sentiment": -0.018832568807339453
+    },
+    "Poe": {
+      "frequency": 166,
+      "sentiment": -0.018832568807339453
+    },
+    "poe": {
+      "frequency": 4,
+      "sentiment": 0.056497706422018346
+    }
+  },
+  {
+    "Della": {
+      "frequency": 144,
+      "sentiment": -0.08431630595104356
+    },
+    "Jim": {
+      "frequency": 99,
+      "sentiment": 0.00041025479362030715
+    },
+    "James": {
+      "frequency": 12,
+      "sentiment": -0.12419372530588227
+    },
+    "Dillingham": {
+      "frequency": 11,
+      "sentiment": -0.12419372530588227
+    },
+    "Young": {
+      "frequency": 11,
+      "sentiment": -0.12419372530588227
+    },
+    "Combs": {
+      "frequency": 8,
+      "sentiment": 0.45648722707507017
+    }
+  }
+]
