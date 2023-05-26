@@ -23,6 +23,8 @@ Our datasets are placed inside folder ```/data```. We have three different corpu
 ## Usage
 The project is organized in a way, that you can always skip any step because all the results are stored in JSON files. This is great since some methods take really long time.
 
+![Pipeline](imgs/pipeline.png)
+
 ## NER and Coreference (English)
 
 Open ```/src/sentiment_analysis_eng.ipynb``` and run all the cells. In the end, the results are stored in JSON files.
