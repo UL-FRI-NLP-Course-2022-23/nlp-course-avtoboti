@@ -7,6 +7,8 @@ Team members:
  
 Group public acronym/name: `Avtoboti`
 
+Report (PDF) is available [here](report/report.pdf)
+
 ## Installation
 
 Install all the packages with pip.
