@@ -242,33 +242,46 @@ def find_character_sentences(characters, book_text, nlp, coref_json=None, find_m
     elif find_mode == 'coref':
         # Replace pronouns with character names
 
+        # If Slovene, we already have sentences in which characters appear, so we just need to extract them
+        if lang == 'sl':
+            # Tokenize text into sentences
+            # sentences = sent_tokenize(book_text, 'slovene')
+
+            # Split into sentences using classla
+            # sentences = [sentence.text for sentence in nlp(book_text).sentences]
+            # Since in our version of classla getting a sentence text is bugged (returns None), we have to use a hack
+            # by getting it from _metadata
+            sentences = [sentence._metadata.split('# text = ')[1] for sentence in nlp(book_text).sentences]
+
+            for c, _ in characters.items():
+                characters_sentences[c] = []
+
+                character_corefs = coref_json[c]
+
+                for coref in character_corefs:
+                    try:
+                        characters_sentences[c].append(sentences[coref['sentence_index']])
+                    except IndexError:
+                        pass
+
         # If English, we have already passed in such text that it already contains co-references replaced with
         # character names
-        if lang == 'sl':
-            raise Exception('Co-reference resolution not supported for Slovene')
-        elif lang != 'en':
-            raise Exception('Language not supported')
-
-        #  Deprecated for now
-        # book_text = replace_text(book_text, coref_json)
-
-        if lang == 'en':
+        elif lang == 'en':
             # Tokenize text into sentences
             sentences = sent_tokenize(book_text)
-        elif lang == 'sl':
-            # Tokenize text into sentences
-            sentences = sent_tokenize(book_text, 'slovene')
+
+            # Extract sentences in a way similar to direct mode
+            for c, _ in characters.items():
+                characters_sentences[c] = []
+
+                # Find sentences in which the character appears
+                for sentence in sentences:
+                    if c in word_tokenize(sentence):
+                        characters_sentences[c].append(sentence)
         else:
             raise Exception('Language not supported')
 
-        # Extract sentences in a way similar to direct mode
-        for c, _ in characters.items():
-            characters_sentences[c] = []
 
-            # Find sentences in which the character appears
-            for sentence in sentences:
-                if c in word_tokenize(sentence):
-                    characters_sentences[c].append(sentence)
 
     # If invalid mode, raise exception
     else:

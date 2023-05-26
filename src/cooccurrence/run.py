@@ -22,6 +22,7 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
 
     co_occurrences = []
     coref_json = None
+    all_coref_json = None  # JSON with co-reference resolution for all books, only needed for coref mode
 
     # Choose folder
     if stories == 'ess':
@@ -37,16 +38,12 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
             raise Exception("Mode not supported")
         lang = 'en'
         if find_mode == 'coref':
-            if lang == 'en':
-                all_coref_json = read_json_file(ess_coref_json)
-                all_coref_replaced_json = read_json_file(ess_coref_replaced_json)
-            elif lang == 'sl':
-                raise Exception("Coreference resolution not supported for Slovene")
-            else:
-                raise Exception("Language not supported")
+            all_coref_json = read_json_file(ess_coref_json)
+            all_coref_replaced_json = read_json_file(ess_coref_replaced_json)
     elif stories == 'sn':
         folder = sn_dir
         character_dict = sn_characters_dict
+        characters_coref_dict = sn_characters_coref_dict
         if 'afinn' in mode:
             jsonfile = sn_characters_afinn_json
         elif 'vader' in mode:
@@ -57,16 +54,12 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
             raise Exception("Mode not supported")
         lang = 'sl'
         if find_mode == 'coref':
-            if lang == 'en':
-                all_coref_json = read_json_file(sn_coref_json)
-                all_coref_replaced_json = read_json_file(sn_coref_replaced_json)
-            elif lang == 'sl':
-                raise Exception("Coreference resolution not supported for Slovene")
-            else:
-                raise Exception("Language not supported")
+            all_coref_json = read_json_file(sn_coref_json)
+            all_coref_replaced_json = None
     elif stories == 'sss':
         folder = sss_dir
         character_dict = sss_characters_dict
+        characters_coref_dict = sss_characters_coref_dict
         if 'afinn' in mode:
             jsonfile = sss_characters_afinn_json
         elif 'vader' in mode:
@@ -77,13 +70,8 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
             raise Exception("Mode not supported")
         lang = 'sl'
         if find_mode == 'coref':
-            if lang == 'en':
-                all_coref_json = sss_coref_json
-                all_coref_replaced_json = read_json_file(sss_coref_replaced_json)
-            elif lang == 'sl':
-                raise Exception("Coreference resolution not supported for Slovene")
-            else:
-                raise Exception("Language not supported")
+            all_coref_json = read_json_file(sss_coref_json)
+            all_coref_replaced_json = None
     else:
         raise Exception("Stories not supported")
 
@@ -113,7 +101,8 @@ def extract_all_co_occurrences(stories, mode, find_mode='direct'):
             if lang == 'en':
                 text = all_coref_replaced_json[character_dict.get(filename)]
             elif lang == 'sl':
-                raise Exception('Coreference resolution not yet supported for Slovene')
+                text = get_book_text(os.path.join(folder, filename))
+                coref_json = all_coref_json[characters_coref_dict.get(filename)]
             else:
                 raise Exception('Language not supported')
         else:

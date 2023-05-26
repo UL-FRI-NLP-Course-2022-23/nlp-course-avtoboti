@@ -10,8 +10,8 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-mode = "bert"
-sentiment_type = "longer"
+mode = "afinn"
+sentiment_type = "negative"
 
 if sentiment_type == "positive":
     text = "Janez je bil vesel. Peter je bil neverjetno vesel."
@@ -97,9 +97,9 @@ if "afinn" in mode:
 
     afinn_sl = sentex_afinn.create_slovene_afinn_dict()
 
-    sentiments = sentex_afinn.sentiment_analysis(characters, text, nlp_sl, afinn_sl, lang='sl')
+    sentiments = sentex_afinn.sentiment_analysis(characters, text, afinn_sl, nlp_sl, lang='sl')
     print("afinn sl: ", sentiments)
-    sentiments = sentex_afinn.sentiment_analysis(characters, text_en, nlp, afinn, lang='en')
+    sentiments = sentex_afinn.sentiment_analysis(characters, text_en, afinn, nlp, lang='en')
     print("afinn en: ", sentiments)
 elif "vader" in mode:
     sia = SentimentIntensityAnalyzer()

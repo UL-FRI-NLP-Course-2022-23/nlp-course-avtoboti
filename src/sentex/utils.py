@@ -21,7 +21,7 @@ ess_characters_dict = {
 
 sn_dir = "../../data/slovenian_novels"
 
-sn_characters_json = "../../data/characters_by_stories_slo_novels.json"
+sn_characters_json = "../../data/characters_by_stories_slo_novels_coref.json"
 
 sn_coref_json = "../../data/named_entities_by_stories_slo_novels.json"
 sn_coref_replaced_json = "../../data/resolved_texts_slo_novels.json"
@@ -54,33 +54,33 @@ sn_characters_dict = {
 
 sss_dir = "../../data/slovenian_short_stories"
 
-sss_characters_json = "../../data/characters_by_stories_slo_short_stories.json"
+sss_characters_json = "../../data/characters_by_stories_slo_short_stories_coref.json"
 
 sss_coref_json = "../../data/named_entities_by_stories_slo_short_stories.json"
 sss_coref_replaced_json = "../../data/resolved_texts_slo_short_stories.json"
 
 sss_characters_dict = {
-    'Boter_petelin_in_njegova_zgodba.txt': 0,
-    'Deklica_in_pasjeglavci.txt': 1,
-    'Hudobna_mačeha_in_dobra_pastorka.txt': 2,
-    'Jug_in_pastorek.txt': 3,
-    'Kaj_dela_žena.txt': 4,
-    'Kačja_dolina.txt': 5,
-    'Kmet_in_škrat.txt': 6,
-    'Kralj_in_njegovi_trije_sinovi.txt': 7,
-    'Mojca_Pokrajculja.txt': 8,
-    'Natančni_hlapec.txt': 9,
-    'O_bikcu_markcu.txt': 10,
-    'O_dvanajstih_bratih_in_sestrah.txt': 11,
+    'Okamenele_kraljične.txt': 0,
+    'Boter_petelin_in_njegova_zgodba.txt': 1,
+    'Deklica_in_pasjeglavci.txt': 2,
+    'Hudobna_mačeha_in_dobra_pastorka.txt': 3,
+    'Jug_in_pastorek.txt': 4,
+    'Kaj_dela_žena.txt': 5,
+    'Kačja_dolina.txt': 6,
+    'Kmet_in_škrat.txt': 7,
+    'Kralj_in_njegovi_trije_sinovi.txt': 8,
+    'Mojca_Pokrajculja.txt': 9,
+    'Natančni_hlapec.txt': 10,
+    'Od_kdaj_ima_zajček_kratek_rep.txt': 11,
     'O_dveh_bratih_in_velikanih.txt': 12,
-    'O_junaškem_kovaču.txt': 13,
-    'O_mladeniču_ki_bi_rad_strah_poznal.txt': 14,
-    'O_povodnem_možu.txt': 15,
-    'O_treh_bratih_in_treh_hčerah.txt': 16,
-    'O_treh_grahih.txt': 17,
-    'O_šivilji_in_škarjicah.txt': 18,
-    'Od_kdaj_ima_zajček_kratek_rep.txt': 19,
-    'Okamenele_kraljične.txt': 20,
+    'O_bikcu_markcu.txt': 13,
+    'O_dvanajstih_bratih_in_sestrah.txt': 14,
+    'O_junaškem_kovaču.txt': 15,
+    'O_mladeniču_ki_bi_rad_strah_poznal.txt': 16,
+    'O_povodnem_možu.txt': 17,
+    'O_treh_bratih_in_treh_hčerah.txt': 18,
+    'O_treh_grahih.txt': 19,
+    'O_šivilji_in_škarjicah.txt': 20,
     'Pastirček_in_čarovnikova_hči.txt': 21,
     'Prijazna_in_prepirljiva_deklica.txt': 22,
     'Samson_in_čevljarček.txt': 23,

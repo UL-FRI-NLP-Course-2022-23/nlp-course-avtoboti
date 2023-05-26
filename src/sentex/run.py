@@ -30,6 +30,7 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
     """
 
     sentiments = []
+    coref_json = None
     all_coref_json = None  # JSON with co-reference resolution for all books, only needed for coref mode
 
     # Choose folder
@@ -39,39 +40,24 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
         character_dict = ess_characters_dict
         lang = 'en'
         if find_mode == 'coref':
-            if lang == 'en':
-                all_coref_json = read_json_file(ess_coref_json)
-                all_coref_replaced_json = read_json_file(ess_coref_replaced_json)
-            elif lang == 'sl':
-                raise Exception("Coreference resolution not supported for Slovene")
-            else:
-                raise Exception("Language not supported")
+            all_coref_json = read_json_file(ess_coref_json)
+            all_coref_replaced_json = read_json_file(ess_coref_replaced_json)
     elif stories == 'sn':
         folder = sn_dir
         jsonfile = sn_characters_json
         character_dict = sn_characters_dict
         lang = 'sl'
         if find_mode == 'coref':
-            if lang == 'en':
-                all_coref_json = read_json_file(sn_coref_json)
-                all_coref_replaced_json = read_json_file(sn_coref_replaced_json)
-            elif lang == 'sl':
-                raise Exception("Coreference resolution not supported for Slovene")
-            else:
-                raise Exception("Language not supported")
+            all_coref_json = read_json_file(sn_coref_json)
+            all_coref_replaced_json = None
     elif stories == 'sss':
         folder = sss_dir
         jsonfile = sss_characters_json
         character_dict = sss_characters_dict
         lang = 'sl'
         if find_mode == 'coref':
-            if lang == 'en':
-                all_coref_json = read_json_file(sss_coref_json)
-                all_coref_replaced_json = read_json_file(sss_coref_replaced_json)
-            elif lang == 'sl':
-                raise Exception("Coreference resolution not supported for Slovene")
-            else:
-                raise Exception("Language not supported")
+            all_coref_json = read_json_file(sss_coref_json)
+            all_coref_replaced_json = None
     else:
         raise Exception("Stories not supported")
 
@@ -140,24 +126,18 @@ def extract_all_sentiments(stories, mode, infrequent_characters=0, find_mode='di
         characters_json = remove_infrequent_characters(characters_json, min_characters)
         characters_json = remove_false_characters(characters_json, lang=lang)
 
-        # Get book text; if coref and
+        # Get book text and co-references
         if find_mode == 'coref':
             if lang == 'en':
                 text = all_coref_replaced_json[character_dict.get(filename)]
             elif lang == 'sl':
-                raise Exception('Coreference resolution not yet supported for Slovene')
+                text = get_book_text(os.path.join(folder, filename))
+                coref_json = all_coref_json[character_dict.get(filename)]  # This has indexes of sentences directly
             else:
                 raise Exception('Language not supported')
         else:
             # Get book text
             text = get_book_text(os.path.join(folder, filename))
-
-        # Deprecated - coreference resolution is now done by directly reading the JSON file where co-references
-        # have already been replaced by the character names
-        # Get book co-references
-        coref_json = None
-        # if all_coref_json is not None:
-        #   coref_json = get_book_corefs(all_coref_json[character_dict.get(filename)])
 
         # If we removed all characters, skip the book
         if characters_json is None or characters_json == {}:
@@ -206,7 +186,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         raise Exception('Usage: python run.py <stories> <mode>')
 
-    stories_sentiments = extract_all_sentiments(stories_arg, mode_arg, infrequent_characters=3, find_mode='direct')
+    stories_sentiments = extract_all_sentiments(stories_arg, mode_arg, infrequent_characters=3, find_mode='coref')
 
     for i in range(len(stories_sentiments)):
         if stories_sentiments[i] is None:

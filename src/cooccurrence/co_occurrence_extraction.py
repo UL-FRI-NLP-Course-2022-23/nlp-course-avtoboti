@@ -81,26 +81,51 @@ def extract_co_occurrences(characters, book_text, nlp, coref_json=None, find_mod
         # If English, we have already passed in such text that it already contains co-references replaced with
         # character names
         if lang == 'sl':
-            raise Exception('Co-reference resolution not supported for Slovene')
-        elif lang != 'en':
+            # Split into sentences using classla
+            # sentences = [sentence.text for sentence in nlp(book_text).sentences]
+            # Since in our version of classla getting a sentence text is bugged (returns None), we have to use a hack
+            # by getting it from _metadata
+            sentences = [sentence._metadata.split('# text = ')[1] for sentence in nlp(book_text).sentences]
+
+            for c1, _ in characters.items():
+                for c2, _ in characters.items():
+                    if c1 != c2 and (c2, c1) not in co_occurrences:
+                        character_corefs1 = coref_json[c1]
+                        character_corefs2 = coref_json[c2]
+
+                        # Gather the indexes of the sentences in which the characters appear
+                        indexes1 = [coref['sentence_index'] for coref in character_corefs1]
+                        indexes2 = [coref['sentence_index'] for coref in character_corefs2]
+
+                        # Get the sentences in which both characters appear
+                        indexes = list(set(indexes1).intersection(set(indexes2)))
+
+                        if len(indexes) > 0:
+                            co_occurrences[(c1, c2)] = len(indexes)
+
+                        # Just to print these instances
+                        # for index in indexes:
+                        #     print(sentences[index])
+        elif lang == 'en':
+            # Continue in the same way as in the first case, but with the co-references replaced with character names
+            for c1, _ in characters.items():
+                for c2, _ in characters.items():
+                    # Check if entry is already in the dictionary
+                    if c1 != c2 and (c2, c1) not in co_occurrences:
+                        for sentence in sentences:
+                            # Tokenize sentence
+                            ts = word_tokenize(sentence)
+
+                            # Check if both characters are in the sentence
+                            if any(c1 in word for word in ts) and \
+                                    any(c2 in word for word in ts):
+                                # Add entry to the dictionary
+                                if (c1, c2) not in co_occurrences:
+                                    co_occurrences[(c1, c2)] = 0
+
+                                co_occurrences[(c1, c2)] += 1  # Increment co-occurrence count
+        else:
             raise Exception('Language not supported')
 
-        # Continue in the same way as in the first case, but with the co-references replaced with character names
-        for c1, _ in characters.items():
-            for c2, _ in characters.items():
-                # Check if entry is already in the dictionary
-                if c1 != c2 and (c2, c1) not in co_occurrences:
-                    for sentence in sentences:
-                        # Tokenize sentence
-                        ts = word_tokenize(sentence)
-
-                        # Check if both characters are in the sentence
-                        if any(c1 in word for word in ts) and \
-                                any(c2 in word for word in ts):
-                            # Add entry to the dictionary
-                            if (c1, c2) not in co_occurrences:
-                                co_occurrences[(c1, c2)] = 0
-
-                            co_occurrences[(c1, c2)] += 1  # Increment co-occurrence count
 
     return co_occurrences
