@@ -23,7 +23,7 @@ Our datasets are placed inside folder ```/data```. We have three different corpu
 ## Usage
 The project is organized in a way, that you can always skip any step because all the results are stored in JSON files. This is great since some methods take really long time.
 
-![Pipeline](imgs/pipeline.png)
+<img src='imgs/pipeline.png' alt='Pipeline' height='600'>
 
 ## NER and Coreference (English)
 
