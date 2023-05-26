@@ -1,0 +1,12 @@
+fastcoref
+stanza
+classla
+networkx
+matplotlib
+afinn
+googletrans
+nltk
+numpy
+tensorflow
+torch
+transformers
