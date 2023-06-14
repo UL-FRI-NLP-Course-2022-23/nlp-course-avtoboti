@@ -20,6 +20,10 @@ pip install -r requirements.txt
 ## Datasets
 Our datasets are placed inside folder ```/data```. We have three different corpuses. English short stories (```/data/english_short_stories```), Slovenian short stories (```/data/slovenian_short_stories```), and Slovenian novels (```/data/slovenian_novels```). Inside ```/data``` folder we also have JSON files which contain named entities by stories, character frequencies by stories and resolved texts by stories.
 
+## Models
+
+[Slovenian Coreference Model](https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1773{/slo_coref.zip})
+
 ## Usage
 The project is organized in a way, that you can always skip any step because all the results are stored in JSON files. This is great since some methods take really long time.
 
